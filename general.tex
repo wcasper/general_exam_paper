@@ -1,0 +1,120 @@
+\NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX)
+[1994/12/01]% LaTeX date must December 1994 or later
+\documentclass[draft]{article}
+\pagestyle{headings}
+
+\title{Maximal Orders on Surfaces}
+\author{W.R. Casper}
+% \date{Version 2.0, 2015}
+
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathrsfs,mathabx}
+\usepackage[all]{xy}
+
+\usepackage[nottoc]{tocbibind}
+\usepackage{enumerate}
+
+%    Some definitions useful in producing this sort of documentation:
+\chardef\bslash=`\\ % p. 424, TeXbook
+%    Normalized (nonbold, nonitalic) tt font, to avoid font
+%    substitution warning messages if tt is used inside section
+%    headings and other places where odd font combinations might
+%    result.
+\newcommand{\ntt}{\normalfont\ttfamily}
+%    command name
+\newcommand{\cn}[1]{{\protect\ntt\bslash#1}}
+%    LaTeX package name
+\newcommand{\pkg}[1]{{\protect\ntt#1}}
+%    File name
+\newcommand{\fn}[1]{{\protect\ntt#1}}
+%    environment name
+\newcommand{\env}[1]{{\protect\ntt#1}}
+\hfuzz1pc % Don't bother to report overfull boxes if overage is < 1pc
+
+%       Theorem environments
+
+%% \theoremstyle{plain} %% This is the default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ax}{Axiom}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remk}{Remark}[section]
+\newtheorem{ex}{Example}
+\newtheorem*{notation}{Notation}
+
+%\numberwithin{equation}{section}
+
+\newcommand{\thmref}[1]{Theorem~\ref{#1}}
+\newcommand{\secref}[1]{\S\ref{#1}}
+\newcommand{\lemref}[1]{Lemma~\ref{#1}}
+
+\newcommand{\bysame}{\mbox{\rule{3em}{.4pt}}\,}
+
+%       Math definitions
+
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbp}{\mathbb{P}}
+\newcommand{\bbg}{\mathbb{G}}
+\newcommand{\bbsl}{\mathbb{SL}}
+\newcommand{\bbgl}{\mathbb{GL}}
+\newcommand{\bbpgl}{\mathbb{PGL}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\catc}{\mathcal{C}}
+\newcommand{\sheaf}[1]{\mathcal{#1}}
+\newcommand{\height}{\textnormal{ht}}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\wc}[1]{\widecheck{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\diff}{\backslash}
+\newcommand{\id}{\textnormal{id}}
+
+\newcommand{\Pic}{\textnormal{Pic}}
+
+\newcommand{\Ord}{\textnormal{\underline{Ord}}}
+\newcommand{\Sch}{\textnormal{\underline{Sch}}}
+\newcommand{\Sets}{\textnormal{\underline{Sets}}}
+\newcommand{\twist}{\textnormal{\underline{Twist}}}
+\newcommand{\Az}{\textnormal{Az}}
+\newcommand{\Br}{\textnormal{Br}}
+\newcommand{\torsor}{\textnormal{Torsor}}
+\newcommand{\nrd}{\textnormal{N}_{\text{red}}}
+\newcommand{\trd}{\textnormal{Tr}_{\text{red}}}
+\newcommand{\chrd}{\textnormal{Ch}_{\text{red}}}
+
+\newcommand{\End}{\textnormal{End}}
+\newcommand{\Hom}{\textnormal{Hom}}
+\newcommand{\Aut}{\textnormal{Aut}}
+\newcommand{\vspan}{\textnormal{span}}
+\newcommand{\spec}{\textnormal{spec}}
+\newcommand{\ram}{\textnormal{ram}}
+
+% Style decisions
+\newcommand{\vocab}[1]{\textit{#1}}
+
+\begin{document}
+\maketitle
+%\markboth{Sample paper for the {\protect\ntt\lowercase{amsmath}} package}
+%{Sample paper for the {\protect\ntt\lowercase{amsmath}} package}
+\renewcommand{\sectionmark}[1]{}
+%\tableofcontents
+
+\include{introduction}
+\include{azumaya}
+\include{classical_orders}
+\include{general_orders}
+
+\newpage
+
+
+\end{document}
+\endinput
+

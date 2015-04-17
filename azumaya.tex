@@ -1,0 +1,168 @@
+\section{Azumaya Algebras}
+\subsection{Twisted Forms and Nonabelian $H^1$}
+\begin{defn}
+Let $X$ be a scheme.  We define a \vocab{category of algebraic structures} on $X$ to be a subcategory $\catc$ of the category of sheaves on $X$.
+\end{defn}
+We will be primarily interested in case where $\catc/X$ is one of the following examples
+\begin{itemize}
+\item the category of $\sheaf O_X$-modules on $X$
+\item the category of $\sheaf O_X$-algebras on $X$
+\item the category of schemes over $X$
+\item the category of $G$-sets, for $G$ a group scheme on $X$
+\end{itemize}
+Note that if $Y\in \Sch_X$, then pullback determines from $\catc$ a category of algebraic structures $\catc/Y$, and a right exact functor $\catc\rightarrow\catc/Y$.
+\begin{defn}
+Let $c\in \catc$.  We define an etale (fppf) \vocab{twisted form of $c$} to be an object $c'\in \catc$ such that there exists an etale (fppf) cover $\mathfrak U = \{f_i: U_i\rightarrow X\}$ with $c',c$ isomorphic in $\catc/U_i$ for all $i$.  We denote by $\twist(c)$ the set of isomorphism classes of twisted forms of $c$.
+\end{defn}
+
+The basis for understanding and classifying etale (fppf) twisted forms of $c\in C$ comes from a canonical identification of twisted forms of $c$ as \v{C}ech cohomology classes of the sheaf of automorphisms of $c$.  We will describe this correspondence here for etale twisted forms of $c$; the correspondence for fppf twisted forms is similar.  For $c\in C$, let $\Aut_{et}(c)$ denote the sheaf on the big etale site of schemes over $X$, defined by
+$$\Aut_{et}(c): (f: Y\rightarrow X)\mapsto \Aut_{\catc/Y}(f^*c).$$
+Then for a twisted form $c'$ of $c$, the local isomorphisms $\varphi_i: f_i^*c'\rightarrow f_i^*c$ generate a \v{C}ech cocycle $(\psi_{ij})\in \wc{C}^1(\mathfrak U,\Aut_{et}(c))$, for
+$$\psi_{ij}: (p_i^*\varphi_i)\circ(p_j^*\varphi_j)^{-1}\in \End(f_{ij}^*c),$$
+with $f_{ij}: U_i\times_X U_j\rightarrow X$ the induced map of the fibre product, and $p_i: U_i\times_X U_j\rightarrow U_i$ the canonical projection map.  The natural map $\wc{C}^1(\mathfrak U,\Aut_{et}(c))\rightarrow \wc{H}^1(\mathfrak U,\Aut_{et}(c))\rightarrow\wc{H}^1(X_{et},\Aut_{et}(c))$ completes the construction.  A descent argument then proves the following lemma
+\begin{lem}\label{twisted form lemma}
+Let $\catc$ be a category of algebraic structures on a scheme $X$, and let $c\in C$.  Then the canonical association of a \v{C}ech cocycle to a twisted form $c'$ of $c$ defines an injection
+$$\twist(c)\hookrightarrow \wc{H}^1(X_{et},\Aut_{et}(c)).$$
+A similar statement holds for the fppf twisted forms of $c$.
+\end{lem}
+
+\begin{ex}
+Let $X = \spec(k)$, let $\catc$ be the category of schemes over $X$, and let $c = \spec(L)$ for $L$ a finite separable field extension of $k$.  If $Z\rightarrow X$ is etale, then $Z = \amalg_{i=1}^n\spec(L_i)$ where each $L_i$ is a finite, separable extension of $k$.  Therefore $Y\times_X Z = \amalg \spec(L_i\otimes_k L)$, and since $\Aut_{L_i}(L_i\otimes_k L)\cong \Aut_k(L)$, and thus
+$$\Aut(c): Z\mapsto \Aut_{\Sch_Z}(Y\times_X Z) = \prod_{i=1}^nG,$$
+where $G$ is the Galois group of the extension $L/k$.  Thus $\Aut(c)$ may be identified with the constant sheaf $G$ on the (big) etale site of $X$.  Consequently, $\wc{H}^1(X_{et},\Aut_{et}(c)) = \wc{H}^1(X_{et},G)$, and so twisted forms of $c$ are in one-to-one correspondence with $G$-torsors on $X$; for $X = \spec(k)$, these are exactly the Galois extensions of $k$ with Galois group $G$.
+\end{ex}
+
+In the previous example, we swept under the rug the issue of whether $\twist(c)\rightarrow\wc{H}^1(X,\Aut_{et}(c))$ is surjective.  Since descent theory may always be applied to ``glue together" the descent data coming from a representative $\wc{H}^1(X,\Aut_{et}(c))$ to a sheaf, the question is really one of representability: when is the sheaf that we glue together actually a member of the category $\catc$?  For example, it is clear that descent will be effective for $\catc$ the category of $G$-torsor sheaves.  However, whether it is effective for the category of $G$-torsors is equivalent to asking whether any $G$-torsor sheaf is representable.  This question in general can be difficult to answer.
+
+Nevertheless, in many important instances the above map is an isomorphism.
+\begin{ex}
+Let $\catc$ be the category of quasi-coherent $\sheaf O_X$-modules, and let $c = \sheaf O_X^n$.  Then $\Aut(c)$ is equal to the group scheme $\bbgl_n$ defined on the big fppf site of $X$ by
+$$\bbgl_n: (U\rightarrow X)\mapsto \bbgl_n(\Gamma(U,\sheaf O_U)).$$
+Suppose $c'\in\catc$ is a twisted form of $c$.  Then $c'$ is fppf locally free of rank $n$.  By a follow-your-nose type argument, $c'$ is therefore Zariski locally free.  Thus $\twist(c)$ is the set of isomorphism classes of locally free rank $n$ $\sheaf O_X$-modules.  Since fppf descent is  effective for quasicoherent sheaves of $\sheaf O_X$-modules, we conclude that
+$$\wc{H}^1(X_{fppf},\bbgl_n)\cong \twist(c) = \{\text{iso. classes of locally free, rank $n$ $\sheaf O_X$-modules}\}.$$
+As a special case of this, we see that $\wc{H}^1(X_{fppf},\bbg_m) = \wc H^1(X_{fppf},\bbgl_1)$ classifies isomorphism classes of invertible sheaves on $X$, ie. $\wc{H}^1(X,\bbg_m) \cong \Pic(X)$.
+\end{ex}
+\begin{ex}
+Let $\catc$ be the category of $\sheaf O_X$-algebras, and let $c = M_n: (U\rightarrow X)\mapsto M_n(\Gamma(U,\sheaf O_U))$.  The etale twisted forms of $c$ are exactly the rank $n$ Azumaya algebras on $X$.  Since etale descent is effective for $\sheaf O_X$-algebras, it follows that $\wc{H}^1(X_{et},\Aut_{et}(c))$ classifies isomorphism classes of rank $n$ Azumaya algebras on $X$.
+
+What is $\Aut_{et}(c)$?  Conjugation provides a natural map $\bbgl_n\rightarrow \Aut_{et}(c)$ with kernel $\bbg_m$.  A version of the Skolem-Noether Theorem says that for any local ring $R$, all automorphisms of the ring $M_n(R)$ are inner.  Therefore, we see that the map of etale stalks $\bbgl_n\rightarrow\Aut_{et}(c)$ is surjective on stalks, and hence surjective.  In particular, we have a short exact sequence
+$$0\rightarrow\bbg_m\rightarrow\bbgl_m\rightarrow\Aut(c)\rightarrow 0.$$
+The cokernel of $\bbg_m\rightarrow \bbgl_n$ is exactly the group scheme $\bbpgl_n$, so we have an isomorphism $\Aut(c)\cong\bbpgl_n$.  Hence $\wc H^1(X_{et},\bbpgl_n)$ classifies isomorphism classes of Azumaya algebras on $X$.
+\end{ex}
+
+\begin{ex}
+Let $\catc$ be the category of schemes over $X$, and let $c = \bbp^{n-1}_X$.  Then $\Aut(c) = \bbpgl_n$ and we have a canonical injection $\twist(c)\hookrightarrow \wc{H}^1(X_{fppf},\bbpgl_n)$.  As it so happens, this map is also surjective, though it's a bit harder to show.  Therefore $\wc{H}^1(X,\bbpgl_n)$ also classifies twisted forms of $\bbp^{n-1}_X$, so called Severi-Brauer varieties.
+\end{ex}
+
+Our last example describes a sort of universal interpretation of the elements of $\wc{H}^1(X,G)$ as isomorphism classes of $G$-torsor sheaves on $X$.  From some perspectives, this could be considered the right definition of the first nonabelian cohomology group.
+\begin{ex}
+Let $G$ be a group scheme on $X$.  By a (right) $G$-set on $X$, we mean a sheaf $F$ on $X$, and a morphism of sheaves $F\times G\rightarrow F$ compatible with the canonical morphism $G\times G\rightarrow G$, ie. so that the natural map $(F\times G)\times G\rightarrow F\times (G\times G)$ factors over $F$.  Let $\catc$ be the category of $G$-sets on $X$ with morphisms given by $G$-equivariant natural transformations.  Let $c=G$, with the canonical $G$-action by multiplication on the right.  We call $c$ the \vocab{trivial} $G$-torsor.
+
+If $c'$ is an fppf-twist of $G$, then $c'$ is an fppf locally isomorphic to the trivial $G$-torsor: this is exactly the definition of a $G$-torsor sheaf on $X$!  Thus $\twist(c)$ is exactly the set of isomorphism classes of locally trivial $G$-torsor sheaves on $X$.  For any $Y\rightarrow X$, the set of $G$-equivariant maps $G\rightarrow G$ are exactly determined by where they send the identity.  Hence there is a canonical identification $\Aut(c) = G$.  Thus $\wc H^1(X_{fppf},G)$ is classifies the isomorphism classes of $G$-torsors on $X$.  We denote the set of isomorphism classes of $G$-torsors on $X$ as $\torsor(G)$.
+\end{ex}
+
+\begin{remk}
+The first cohomology group is known to agree with the standard cohomology group for $G$ abelian on any site, so from now on we will leave off the check symbol, and simply write $H^1(X_{site},G)$.  Moreover, for many of the groups we work with, the first cohomology groups for the etale and fppf sites will agree -- in such situations, we will simply write $H^1(X,G)$ to mean cohomology with respect to this site.
+\end{remk}
+\subsection{Gerbes and Nonabelian $H^2$}
+UNDER CONSTRUCTION
+
+\subsection{Azumaya Algebras and the Brauer Group}
+\begin{defn}
+Let $X$ be a scheme.  We define an \vocab{Azumaya algebra} $A$ on $X$ to be a twisted form of the $\sheaf O_X$-algebra $M_n$ for some $n$.  The corresponding value of $n$ is called the \vocab{rank}.  We denote the set of isomorphism classes of Azumaya algebras of rank $n$ on $X$ as $\Az_n(X)$.  We call an Azumaya algebra $A$ \vocab{trivial} if there exist integers $s,t$ satisfying $A\otimes_{\sheaf O_X} M_s \cong M_t$.  We define two Azumaya algebras $A$ and $A'$ to be \vocab{equivalent} if $A\otimes_{\sheaf O_X}(A')^{op}$ is a trivial Azumaya algebra.
+\end{defn}
+
+\begin{ex}
+If $X = \spec(k)$ for $k$ a field, then an Azumaya algebra on $X$ is the same thing as a central simple $k$-algebra.  Wedderburn's theorem tells us that each central simple algebra is isomorphic to a matrix algebra over a division ring; two central simple algebras are equivalent if and only if they have the same underlying division ring.
+\end{ex}
+
+\begin{remk}
+With the definition of equivalence provided above, two Azumaya algebras $A$ and $A'$ are equivalent if and only if the corresponding module categories are the equivalent.  In fact, there corresponding equivalence of categories is the one induced by the $A,A'$-bimodule $A\otimes(A')^{op}$.  Thus the definition of equivalence coincides with the notion of Morita equivalence.
+\end{remk}
+%\marginpar{Should work through this at least once...}
+
+\begin{defn}
+We define the (geometric) \vocab{Brauer group} of $X$ to be the set $\Br(X)$ of equivalence classes of Azumaya algebras on $X$.
+\end{defn}
+
+\begin{prop}
+The Brauer group $\Br(X)$ is an abelian group with binary operation $[A]+[A'] = [A\otimes A']$.
+\end{prop}
+
+\begin{ex}
+Let $X = \spec(\bbr)$.  Then the central division rings over $\bbr$ consist of only $\bbr$ and the quaternion algebra $Q$.  Thus $\Br(\spec(\bbr)) = \bbz/2$.
+\end{ex}
+
+\begin{ex}
+Let $X = \bbp^1_k$.  Then $\Br(X) = \Br(\spec(k))$.
+\end{ex}
+
+The Brauer group $\Br(X)$ is intimately related to $H^2(X,\bbg_m)$, and in particular there is always an injection $\Br(X)\hookrightarrow H^2(X,\bbg_m)$ mapping $\Br(X)$ into the torsion part of $H^2(X,\bbg_m)$.
+\begin{defn}
+Let $X$ be a scheme.  We define the \vocab{cohomological Brauer group} $\Br'(X)$ of $X$ to be the torsion component of $H^2(X,\bbg_m)$.
+\end{defn}
+
+\begin{remk}
+Note that the fppf and etale cohomology of $\bbg_m$ agree.  Hence we simply write $H^i(X,\bbg_m)$ to represent either cohomology group.
+\end{remk}
+
+One way to think about the canonical map $\Br(X)\rightarrow\Br'(X)$ is through the short exact sequence of group schemes
+$$0\rightarrow \bbg_m\rightarrow\bbgl_n\rightarrow\bbpgl_n\rightarrow 0.$$
+As we mentioned in the last section, for any group scheme $G$ on $X$, we can think about the cohomology class $H^1(X,G)$ as isomorphism classes of $G$-torsor sheaves on $X$.  As it turns out, we also have an interpretation of $H^2(X,G)$ as isomorphism classes of $G$-gerbs on $X$.
+\begin{lem}[Giraurd]\label{giraurds lemma}
+Let $X$ be a scheme and let
+$$1\rightarrow G'\rightarrow G\rightarrow G''\rightarrow 1,$$
+be a short exact sequence of group schemes on $X$.  Then there exists a long exact sequence of pointed sets
+\begin{align*}
+1 & \rightarrow H^0(X,G') \rightarrow H^0(X,G)\rightarrow H^0(X,G'')\\
+  & \rightarrow H^1(X,G') \rightarrow H^1(X,G)\rightarrow H^1(X,G'')\xrightarrow{\delta} H^2(X,G')
+\end{align*}
+\end{lem}
+All of the maps, save for $\delta$, may be thought of in terms of \v{C}ech cohomology, and agree with the usual manipulation involving cocycles and restriction.  The map $\delta$ is perhaps a bit mysterious, so we take a little more time to explain it.
+
+Associated to any $G''$-torsor sheaf $F$ on $X$, we may define a pseudo-functor $\Sch_X\rightarrow\Sets$ by
+$$\mathcal{X}_F: (Y\rightarrow X)\mapsto\{(E,\varphi): \text{$E$ a $G''$-torsor sheaf on $X$, $\varphi: E\xrightarrow{\cong} F|_Y$}\}.$$
+This pseudo-functor defines a $G'$-gerb on $X$.  The map $\delta$ is then given by $F\mapsto \mathcal{X}_F$.  Exactness then follows from the fact that $\mathcal{X}_F$ and $BG'$ are isomorphic as stacks if and only if $\mathcal X_F(X)\neq\varnothing$, which is true if and only if $F$ is the trivial torsor sheaf.
+
+As a consequence of the above, there exists an exact sequence
+$$\Pic(X)\rightarrow H^1(X,\bbgl_n)\rightarrow H^1(X,\bbpgl_n)\xrightarrow{\delta} H^2(X,\bbg_m).$$
+
+\begin{prop}
+The fibres of $\delta$ are equivalence classes of Azumaya algebras.  Consequently $\delta$ induces a group monomorphism $\Br(X)\hookrightarrow  H^2(X,\bbg_m)$.
+\end{prop}
+
+The image of $\Br(X)$ in $H^2(X,\bbg_m)$, is torsion.  To see this, consider the commutative diagram
+$$\xymatrix{
+& 1\ar[d] & 1\ar[d]\\
+1\ar[r] & \mu_n\ar[d]\ar[r] & \bbg_m\ar[d]\ar[r]^{\cdot^n} & \bbg_m\ar@{=}[d]\ar[r] & 1\\
+1\ar[r] & \bbsl_n\ar[d]\ar[r] & \bbgl_n\ar[d]\ar[r]^{\det} & \bbg_m\ar[r] & 1\\
+& \bbpgl_n\ar[d] \ar@{=}[r]& \bbpgl_n\ar[d]\\
+& 1 & 1
+}$$
+where the rows and columns are all short exact sequences (in fppf topology).
+\begin{prop}
+The map $\delta: \wc H^1(X,\bbpgl_n)\rightarrow H^2(X,\bbg_m)$ factors through the map $H^2(X,\mu_n)\rightarrow H^2(X,\bbg_m)$ induced by the Kummer sequence.  In particular, the image of $\wc H^1(X,\bbpgl_n)$ is torsion in $H^2(X,\bbg_m)$.
+\end{prop}
+\begin{cor}
+The geometric Brauer group embeds into the cohomological Brauer group.
+\end{cor}
+
+In ideal situations, one can show that the geometric Brauer group and the cohomological Brauer group are the same.  What exactly constitutes an ``ideal situation" is an open problem.  However, agreement is know to hold for Noetherian schemes with dimension at most $1$.
+\begin{prop}
+If $X$ is a Noetherian scheme and $\dim(X)\leq 1$, then $\Br(X) = \Br'(X)$.
+\end{prop}
+\begin{proof}
+Since the small etale sites of $X$ and $X_{\text{red}}$ are equivalent, it suffices to consider the case when $X$ is reduced.
+\begin{enumerate}[\text{Case\ }1:]
+\item  Assume $\dim(X) = 0$.  Then $X$ is a disjoint union of points, and we can reduce to the case that $X = \spec(K)$.  In this case, equality of $\Br(K)$ and $H^2(\spec(K),\bbg_m)$ is classical result of Galois cohomology.
+% \marginpar{Details missing?  Why is $H^1(X,\bbpgl_n)\rightarrow H^2(X,\mu_n)$ surjective? It's not (not all $n$-torsion is rank $n$)!!!  However, $\bigcup_n H^1(X,\bbpgl_n)\rightarrow H^2(X,\bbg_m)$ is injective: gille and szamuely or serre local fields.}
+\item
+Assume $\dim(X) = 1$, and let $d\in H^2(X,\bbg_m)$.  We claim that there is a dense, open subscheme $U$ of $X$ on which the restriction of $[d]$ to an element of $H^2(U,\bbg_m)$ lies in the image of $\Br(U)$.  To see this, let $U_0$ be the open subscheme of nonsingular points of $X$.  Then $U_0$ is a disjoint union of nonsingular, integral curves $C_1\cup\dots\cup C_r$.  Let $c_i$ be the generic point of $C_i$ for each $i$.  Since $C_i$ is nonsingular, $\Br'(C_i)\hookrightarrow \Br(K_i)=\Br'(K_i)$, where $K_i$ represents the fraction field of $C_i$.  Thus the restriction $d_i$ of $d$ to $C_i$ restricts to the generic point to a central simple $K_i$-algebra $\Delta_i$.  Let $A_i$ be a maximal $\sheaf O_{C_i}$-order in $\Delta_i$.  Then $(A_i)_{c_i} = \Delta_i$, and therefore there is a Zariski open neighborhood $U_i$ of $c_i$ in $C_i$ on which $A_i$ is Azumaya: take the complement of the zero set of the descriminant.  Since the pullback morphism $\Br'(X)\rightarrow\Br(K_i)$ factors through the injection $0\rightarrow \Br'(U_i)\rightarrow\Br(K_i)$ it follows that the pullback of $d$ to $\Br'(U_i)$ lands in the image of $\Br(U_i)$.  Hence the pullback of $d$ to $\Br'(U)$ for $U=\bigcup_i U_i$ lands in the image of $\Br(U)$.  Since $U$ is dense in $X$, this proves our claim.
+
+So far, we have shown that $d$ is represented on a dense open subscheme $U$ of $X$ by an Azumaya algebra $A$ on $U$.  If we can show that $U$ can be taken to be all of $X$, then we are done!  Let $V$ be a largest dense open subscheme of $X$ on which $d$ is represented by a sheaf of Azumaya algebras (this makes sense since the complement of $U$ is finitely many points).  Suppose $x\in X\diff V$.  By the previous paragraph, we know that $x$ is a closed point of $X$, and therefore $R = \sheaf O_{X,x}$ is a one-dimensional local ring.  Set $V_x = \spec(R)\cap V = \spec(R)\diff\{x\}$.  The completion $\wh R$ of $R$ is a Hensilian local ring, and therefore $\Br(\wh R) = \Br'(\wh R)$.  Hence the pullback of $d$ to $\spec(\wh R)$ may be represented by an Azumaya $\wh R$-algebra $\wh B$, which must be equivalent to $A$ on $\wh V_x = \spec(\wh R)\diff \{x\}$.  Hence there exist integers $s,t$ such that $M_s(A) = M_t(\wh B)$ on $\wh V_x$.  Then there exists a unique Azumaya $R$-algebra $B$ such that $B\otimes\wh R \cong M_t(\wh B)$.  Gluing $B$ and $A$ together on $\{x\}\cup V$, extends $A$ to an Azumaya algebra on $V\cup \{x\}$.  This contradicts the maximality of $V$, and hence $V = X$.  This completes the proof.
+\end{enumerate}
+\end{proof}
+
+Furthermore, if $X$ is a nonsingular, integral surface then $\Br(X) = \Br(X')$.  We will prove this result in the next section.
+
+
