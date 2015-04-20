@@ -41,10 +41,9 @@ Since $A$ is reflexive, this shows that $A = B^{**}$.  However, $B^{**}$ is an $
 \end{proof}
 
 \begin{defn}
-Let $A$ be an $R$-order in $\Delta$.  We define the \vocab{reduced norm} $\nrd(a)$, \vocab{reduced trace} $\trd(a)$, and \vocab{reduced characteristic polynomial} $\chrd(x;a)$ as follows.  
-Since $\Delta$ is a central simple algebra, there exists a finite separable extension $L/K$ such that there is an isomorphism $\varphi: \Delta\otimes_KL\cong M_n(L)$.  Then we define $\nrd(a) = \det(\varphi(a\otimes 1))$, $\trd(a) = \text{tr}(\varphi(a\otimes 1))$ and $\chrd(x;a) = \det(\varphi(a\otimes 1)-xI)$.
+Let $A$ be an $R$-order in $\Delta$.  We define the \vocab{reduced norm} $\nrd(a)$, \vocab{reduced trace} $\trd(a)$, and \vocab{reduced characteristic polynomial} $\chrd(x;a)$ to be the corresponding data as elements of the Azumaya algebra $\Delta$.
 \end{defn}
-As a consequence of the Skolem-Noether theorem, the reduced norm, reduced trace and reduced characteristic polynomials are all well-defined and are elements of $K$ or $K[x]$.
+
 \begin{lem}
 Suppose that $R$ is integrally closed and $A$ is an $R$-order in $\Delta$.  Then for all $a\in A$, the reduced characterisic polynomial $\chrd(x;a)$ is in $R[x]$.  Consequently, the reduced norm and reduced trace are also both in $R$.
 \end{lem}
@@ -200,7 +199,7 @@ Each of these statements follows from mucking about with $v_D$.
 \end{proof}
 
 \begin{defn}
-Let $A$ be a maximal $R$-order in $D$.  We define the \vocab{ramification index} $e = e(D/K)$ of $D$ over $K$ to be the unique integer $e$ satisfying $J(A)^e = \pi A$.  We define the \vocab{inertial degree} $f = f(D/K)$ to be $f = \dim_k(A/\pi A)$.
+Let $A$ be a maximal $R$-order in $D$.  We define the \vocab{ramification index} $e = e(D/R)$ of $D$ over $K$ to be the unique integer $e$ satisfying $J(A)^e = \pi A$.  We define the \vocab{inertial degree} $f = f(D/R)$ to be $f = \dim_k(A/\pi A)$.
 \end{defn}
 
 \begin{thm}
@@ -256,15 +255,15 @@ If $A$ is a maximal $R$-order in $\Delta$, then $A$ is left and right hereditary
 \end{cor}
 
 \begin{prop}
-Let $A$ be an $R$-order in $\Delta$, and let $\ol A = A/\pi A$ and $\ol {\wh A} = \wh A/\pi \wh A$.  Then
+Let $A$ be an $R$-order in $\Delta$, and let $\ol A = A/\pi A$.  Then
 $$A/J(A)\cong \ol A/J(\ol A)\cong (\wh A)/J(\wh A).$$
 \end{prop}
 \begin{proof}
-By elementary ring theory, $A/J(A)\cong \ol A/J$ and $\wh A/J(\wh A)\cong \ol{\wh A}/J(\ol{\wh A})$.  Therefore it suffices to show that $\ol A\cong\ol{\wh A}$.  This in turn follows from the fact that $\pi\wh A \cong \pi A \otimes\wh R$ and the exactness of $-\otimes\wh R$.
+By elementary ring theory, $A/J(A)\cong \ol A/J$ and $\wh A/J(\wh A)\cong \ol{\wh A}/J(\ol{\wh A})$, where $\ol{\wh A} = \wh A/\pi\wh A$.  Therefore it suffices to show that $\ol A\cong\ol{\wh A}$.  This in turn follows from the fact that $\pi\wh A \cong \pi A \otimes\wh R$ and the exactness of $-\otimes\wh R$.
 \end{proof}
 
 \begin{thm}
-The ideal $J(A)$ is the unique maximal left (or right) ideal of $A$, and furthermore
+Let $A$ be a maximal $R$-order in $\Delta$.  The ideal $J(A)$ is the unique maximal left (or right) ideal of $A$, and furthermore
 $$J(\wh A) = J(A)\otimes\wh R,\ \ J(\wh A)\cap A = J(A).$$
 In fact, every nontrivial two-sided ideal of $A$ is a power of $J(A)$.
 \end{thm}
@@ -279,7 +278,7 @@ Now if $I$ is a nontrivial two-sided ideal of $A$, then $I\otimes K$ is a nontri
 \end{proof}
 
 \begin{lem}
-Let $A$ be an $R$-order in $\Delta$, and let $M$ be a finitely generated left $A$-module.  Then
+Let $A$ be a maximal $R$-order in $\Delta$, and let $M$ be a finitely generated left $A$-module.  Then
 \begin{enumerate}[(a)]
 \item  $A$ is a projective $A$-module
 \item  $A$ is a free $R$-module
@@ -296,38 +295,36 @@ Let $A$ be a maximal $R$-order in $\Delta$.  Then
 \end{enumerate}
 \end{thm}
 
-
-\subsection{Ramification}
-\begin{prop}
-Suppose $R$ is integrally closed, and let $A$ be a maximal $R$-order in $\Delta$.  If $A$ is an Azumaya $R$-algebra, then all of the maximal $R$-order in $\Delta$ are Azumaya.
-\end{prop}
-\begin{proof}
-Suppose that $B$ is another maximal $R$-order in $\Delta$.  Then for all $\p\in\spec(R)$ with $\height(\p) = 1$ we have that $A_\p$ and $B_\p$ are maximal $R_\p$.  Furthermore, $R_\p$ is a DVR so this tells us that $A_\p$ and $B_\p$ are isomorphic as $R_\p$-algebras by Theorem (??).  Therefore since $A_\p$ is Azumaya, so too is $B_\p$.  Moreover, by Theorem (??) $B$ is reflexive, so it follows from Theorem (??) that $B$ is an Azumaya algebra.
-\end{proof}
-\begin{cor}
-Suppose that $R$ is integrally closed, and let $A$ be a maximal $R$-order in $\Delta$.  If $\p\in\spec(R)$ with $A_\p$ Azumaya, then for all maximal $R$-orders $B$ in $\Delta$, $B_\p$ is also Azumaya.
-\end{cor}
-\begin{proof}
-Suppose that $A_\p$ is Azumaya.  Then $A_\p$ and $B_\p$ are maximal $R_\p$-orders in $\Delta$, and therefore $B_\p$ is Azumaya by the previous proposition.
-\end{proof}
-
+\subsection{Ramification of Maximal Orders in DVRs}
+In this section $R$ will always be a DVR with fraction field $K$, uniformizer $\pi$ and residue field $k$, and $\Delta$ will represent a central simple $K$-algebra of rank $n$.
 \begin{defn}
-Let $R$ be integrally closed, and $A$ be a maximal $R$-order in $\Delta$.  For any prime ideal $\p\in\spec(R)$, we say that $\Delta$ \vocab{ramifies} at $\p$ if $A_\p$ is not Azumaya.  We define the \vocab{ramification locus} of $\Delta$, denoted $\ram(\Delta)$, to be the set of all prime ideals $\p\in\spec(R)$ at which $\Delta$ ramifies, and the \vocab{Azumaya locus} of $\Delta$ to be the complement of the ramification locus.
+Let $A$ be a maximal $R$-order in $\Delta$.  The central simple algebra $\Delta$ is said to \vocab{ramify} over $R$ if $A$ is not an Azumaya algebra on $R$.  We define the \vocab{algebraic ramification index} $e = e(\Delta/R)$ to be the unique integer satisfying $J(A)^e = \pi J(A)$, and the \vocab{cohomological ramification index} $e' = e'(\Delta/R)$ to be $e' = \dim_k(Z(A/J(A)))$.  We define the \vocab{inertia degree} $f = f(\Delta/R$) to be the dimension of $A/J(A)$ over its center.
 \end{defn}
-Note that the previous corollary shows that the ramification locus and Azumaya locus are both well-defined, since they are independent of the choice of maximal order.
 
-\begin{prop}
-Suppose that $R$ is integrally closed.  Then the Azumaya locus of $\Delta$ is an open subset of $\spec(R)$, and the ramification locus is a union of irreducible codimension $1$ subvarieties of $R$.
-\end{prop}
+Note that since all of the maximal $R$-orders in $\Delta$ are conjugate, whether or not $\Delta$ ramifies and the value of its ramification index is independent of the choice of maximal $R$-order in $\Delta$.
+\begin{lem}
+Let $A$ be a maximal $R$-order in $\Delta$, with algebraic and cohomological ramification index $e$ and $e'$, respectively, and with inertia degree $f$.  Then $ee'f^2 = n^2$.
+\end{lem}
 \begin{proof}
-Not sure about this...
+Since $A$ is a free $R$-module of rank $n^2$, we have
+$$n^2 = \dim_{k}(\ol A) = e\dim_{k}(\ol A/J(\ol A)) = e\dim_k(A/J(A)) = ee'f^2.$$
 \end{proof}
 
+\begin{prop}
+Let $A$ be a maximal $R$-order in $\Delta$, with algebraic and cohomological ramification $e$ and $e'$, respectively.  Then the following are equivalent
+\begin{enumerate}[(a)]
+\item  $\Delta$ is ramified over $R$
+\item  $e>1$ or $e'>1$
+\end{enumerate}
+\end{prop}
+\begin{proof}
+If $\Delta$ is unramified over $R$, then $A$ is an Azumaya algebra and therefore $\ol A = A/\pi A$ is an Azumaya algebra on $k$.  In particular, this means $\ol A$ is a CSA over $k$, so that $J(\ol A) = 0$ and $Z(\ol A) = k$.  Since $A/J(A)\cong \ol A/J(\ol A)$, this implies that $A/J(A)\cong \ol A$.  Hence $\dim_k(Z(A/J(A))) = 1$ and $J(A) = \pi A$.  Therefore (b) implies (a).
 
+If $\Delta$ is ramified over $R$, then $A$ is not Azumaya, and therefore $\ol A$ is not Azumaya.  If $e = 1$, then $\ol A$ is simple with center a nontrivial cyclic extension of $k$, and therefore $e'>1$.  Hence (a) implies (b).
+\end{proof}
 
-\newpage
+\begin{lem}
+If $\Delta = M_N(D)$ for $D$ a CDA over $K$, and $K$ is perfect or $\deg(D)$ is prime to the characteristic of $K$, then $e = e'$.
+\end{lem}
 
-
-\end{document}
-\endinput
 
