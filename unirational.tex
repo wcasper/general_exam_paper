@@ -1,0 +1,79 @@
+\section{A Nonrational Unirational Variety}
+In this section, we construct a surface $S$ with quotient field $K = k(x,y)$ and quaternion algebra $\Delta$ over $K$ whose ramification locus is a union of two nonsingular, disjoint curves $C_1,C_2$ on $S$ such that the Brauer-Severi scheme of a maximal order $\sheaf A$ of $\Delta$ over $S$ is unirational.  By Proposition FIXME, this tells us that $\BS(\sheaf A)$ is a nonrational unirational variety.
+
+Fix a nonsingular conic in $Z = V(\alpha)\subseteq \bbp^2_k$, and choose six distinct points $P_i^{(j)}\in Z$, $i=1,2$, $j=1,2,3$.
+\begin{lem}
+There exist nonsingular cubic curves $E_i = V(\beta_i) \subseteq \bbp^2_k$ such that
+\begin{enumerate}[(a)]
+\item  $E_i$ has double intersection with $Z$ at $P_i^{(j)}$ for $j=1,2,3$
+\item  $E_i$ and $E_j$ transversally at nine distinct points $O_1,\dots,O_9$
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Fix an isomorphism $Z\cong\bbp^1_k$.  Then the corresponding closed immersion $\bbp_1\cong Z\rightarrow\bbp_2$ corresponds to a degree $2$ homogeneous polynomial $f\in\Gamma(\bbp_2,\sheaf O(2)) = S(2)$ for $S = k[X,Y,Z]$.  Then the short exact sequence of graded $S$-modules
+$$0\rightarrow S(-2)\xrightarrow{f} S\rightarrow S/(f)\rightarrow 0$$
+induces a short exact sequence of sheaves
+$$0\rightarrow \sheaf O(-2)\rightarrow \sheaf O\rightarrow f_*\sheaf O\rightarrow 0.$$
+Tensoring with $\sheaf O(3)$, we obtain a short exact sequence
+$$0\rightarrow \sheaf O(1)\rightarrow \sheaf O(3)\rightarrow f_*\sheaf O(6)\rightarrow 0.$$
+Since $H^1(\bbp^2,\sheaf O(1)) = 0$, this gives us a short exact sequence on global sections
+$$0\rightarrow \Gamma(\bbp^2,\sheaf O(1))\rightarrow \Gamma(\bbp^2,\sheaf O(3))\rightarrow \Gamma(\bbp^1,\sheaf O(6))\rightarrow 0.$$
+Let $g_i\in\Gamma(\bbp^1,\sheaf O(6))$ with $(g_i) = 2\sum_j P^{(j)}_i$.  Then the above sequence shows that the subspace $L_i$ of $\Gamma(\bbp^2,\sheaf O(3))$ of functions whose restriction to $Z$ is $g_i$ is a three-dimension $k$-vector space.  Sweet!  Fix a member $\ell_i\in L_i$ with $\ell_i\mapsto g_i$ for $i=1,2$.
+
+Let $E_i = \{(\ell,x)\in L_i\times\bbp^2: \ell(x) = 0\}$ and $B_i = \{(\ell,x)\in E_i: \nabla \ell(x) = 0\}$, and consider the map
+$$B_i\rightarrow E_i\rightarrow L_i\times\bbp^2\rightarrow L_i.$$
+We claim that $B_i$ does not map onto $L_i$.  To see this, we can consider the other map
+$$B_i\rightarrow E_i\rightarrow L_i\times\bbp^2\rightarrow \bbp^2.$$
+Let $y\in \bbp^2\diff Z$, and suppose $(\ell,y)\in B_i$.  Then $\ell = \ell_i + \alpha p$ for some degree $1$ homogeneous polynomial $p$, and
+we have the two equations
+\begin{align*}
+0 = \ell(y)       & = \ell_i(y) + \alpha(y)p(y)\\
+0 = \nabla\ell(y) & = \nabla\ell_i(y) + p(y)\nabla\alpha(y)  + \alpha(y)\nabla p(y).
+\end{align*}
+In particular, these together along with the fact that $y\cdot\nabla p(y) = p(y)$ tell us
+$$0 = \alpha(y)y\cdot\nabla\ell(y) = \alpha(y)y\cdot\nabla\ell_i(y) -\ell_i(y)y\cdot\nabla\alpha(y) + \alpha(y)\ell_i(y).$$
+Thus $y$ sits inside a codimension $1$ subspace of $\bbp^2$.  Moreover, the value of $p(y)$ is uniquely determined by the requirement that
+$$0 = \alpha(y)\nabla\ell_i(y) - \ell_i(y)\nabla(y) + \alpha(y)^2\nabla p(y).$$
+Therefore the projection $(B_i\diff \{L_i\times\{P_i^{(j)}\})\rightarrow \bbp^2\diff Z$ maps injectively onto a codimension $1$ subspace of $\bbp^2$.  Thus it does not map surjectively onto $L_i$.  Hence we may take the $\ell_i$ to be nonsingular.  By wiggling this argument, we can take $\ell_1$ and $\ell_2$ such that both intersect transversally.
+\end{proof}
+
+Let $q$ be the rational function on $\bbp^2_k$ whose divisor is $Z-2L$, with $L$ the line at infinity.
+\begin{lem}
+The restriction $\ol q$ of $q$ to $E_i$ is not a square in $K(E_i)$ for $i=1,2$.
+\end{lem}
+\begin{proof}
+Let $\sheaf L$ be the line bundle on $\bbp^2_k$ corresponding to the divisor $L$.  We claim that if $f\in \Gamma(E_i,\sheaf L|_{E_i})$, then $f$ has at most two zeros on $Z\cap E_i$.  To see this, let $f\in \Gamma(E_i,\sheaf L|_{E_i})$.  The natural map
+$$\Gamma(Z,\sheaf L)\rightarrow\Gamma(E_i,\sheaf L|_{E_i})$$
+is surjective, and therefore $f$ may be extended to a global section $\wt f$ of the sheaf $\sheaf L$.  Therefore $(\wt f) + L$ is a degree $1$ effective divisor, so we may choose a line $L'$ such that $L' = (\wt f) + L$.  It follows that the zero set of $f = \wt f|_{E_i}$ is exactly $L'\cap E_i$, and therefore the zeros of $f$ on $Z\cap E_i$ are contained in $Z\cap L'$, this latter set having only two elements.  This proves our claim.
+
+Now suppose that $\ol q = f^2$ for some $f\in K(E_i)$.  Then $f$ has the same number of zeros on $Z\cap E_i$ as $\ol q$, namely $3$.  Furthermore, since $(q) = Z-2L$ we know that $(\ol q) + 2E_i\cdot L$ is effective, and therefore $(f) + E_i\cdot L$ is effective.  Hence $f\in \Gamma(E_i,\sheaf L|_{E_i})$.  By the argument of the previous paragraph, this is a contradiction.
+\end{proof}
+
+\begin{lem}
+Let $L_i:=K(E_i)[\ol q^{1/2}]$ and let $E_i'$ be the normalization of $E_i$ in $L_i$.  Then $E_i'\rightarrow E_i$ is unramified.
+\end{lem}
+\begin{proof}
+Since $E_i'\rightarrow E_i$ is locally of finite type, it suffices to show that for any point $P'\in E_i'$ with image $P\in E_i$, the induced map of residue fields $\kappa(P)\rightarrow\kappa(P')$ is a finite, separable field extension.  Then the local ring $R = \sheaf O_{E_i,P}$ is a DVR $(R,\nu)$ with residue field $k$ and fraction field $K(L_i)$.  Let $t$ be a uniformizer for $R$.  Depending on whether or not $P$ is one of the intersection points $P_i^{(j)}$ of $E_i$ and $Z$, the value of $\nu(\ol q)$ is either $0$ or $2$, meaning we may write $\ol q = ut^{2j}$ for some $u\in R^*$ and integer $j$.  Note that $R[u^{1/2}]$ is a semilocal Dedekind domain, hence a PID, and therefore integrally closed in its fraction field $L_i$.  Therefore since $u^{1/2}\in L_i$ is integral over $R$, we have $\sheaf O_{E_i',P'} = R[u^{1/2}]$.  Furthermore $R[u^{1/2}] = R[x]/(x^2-u)$ is unramified since $u$ is a unit.
+\end{proof}
+
+Define $S$ to be the blow up of $\bbp_k^2$ at the intersection points of $O_1,\dots,O_9$ of $E_1$ and $E_2$, and let $C_i$ be the proper transform of $E_i$ for $i=1,2$.  Then $S$ is a simply connected rational surface, on which the nonsingular curves $C_1$ and $C_2$ are disjoint.  Note that since $S$ is rational, $\Br(S) = 0$ by Proposition FIXME.  Therefore the Artin-Mumford sequence tells us there exists a unique $\Delta\in\Br_2(K)$ whose ramification locus is $C = C_1\cup C_2$ and whose ramification data on $C_i$ is the nowhere-ramified extension $L_i$ for $i=1,2$.
+
+Choose a cubic curve $E_0 = V(\beta)\subseteq \bbp^2_k$ such that the divisor $E_0$ pulls back on $Z$ to the divisor $\sum_{ij}P_i^{(j)}$.  In particular, this means that $\beta_1\beta_2-\beta$ is identically zero on $\alpha$, so that there exists a homogeneous polynomial $\gamma$ of degree $4$ satisfying $4\alpha\gamma = (\beta_1\beta_2-\beta)$.  Consider the field $L := K[q^{1/2}]$, and let $Y_0$ be the quartic in $\bbp^3_k$ defined by
+$$Y_0 = V(\alpha(X_0,X_1,X_2)X_3^2 + \beta(X_0,X_1,X_2)X_3 + \gamma(X_0,X_1,X_2))\subseteq \bbp^3_k.$$
+Note that $Q_0 = [0:0:0:1]$ is a singular point of $Y_0$.  Moreover, The projection $Y_0\diff\{Q_0\}\rightarrow\bbp^2_k$ is a double cover of $\bbp^2_k$ ramified at $V(\beta^2-4\alpha\gamma) = V(\beta_1\beta_2) = E_1\cup E_2$.  The remaining singular points of $Y_0$ must occur at ramification points, and therefore correspond to the singular points of $E = E_1\cup E_2$, ie. the points $Q_i$ mapping to the intersection points $O_i$ of the curves $E_1$ and $E_2$.
+
+Let $Y$ be the blow up of $Y$ at $Q_0,\dots, Q_9$.  Then $Y_0$ is the normalization of $\bbp^2_k$ in $L$, so $Y$ is the desingularization of the normalization of $S$ in $L$.  Furthermore, $Y$ is rational since it is birational to $Y_0$, which itself is rational because it is a quadric in $\bbp^3_k$.  Thus if we consider the commutative diagram induced by the morphism $f: Y\rightarrow S$ and the Artin-Mumford exact sequences for $S$ and $Y$
+$$\xymatrix{
+\Br(S) \ar[r]\ar[d] & \Br(K) \ar[r]\ar[d] & \bigoplus_{C\subseteq S} K(C)^*/K(C)^{*2}\ar[d]\\
+\Br(Y) \ar[r] & \Br(L) \ar[r] & \bigoplus_{C\subseteq Y} K(C)^*/K(C)^{*2}
+}$$
+The image of $[\Delta]$ in $\Br(L)$ is $[\Delta_L]$, and the ramification data becomes trivial.  Furthermore, the fact that $Y$ is rational implies that $\Br(Y) =0$.  Thus the class $[\Delta_L]$ is trivial.  Since the Brauer class of $\Delta$ splits over a quadratic extension, we conclude that $\Delta$ may be taken to be a quaternion algebra.
+
+\begin{lem}
+Let $\Delta$ be the quaternion algebra defined above, and let $\sheaf A$ be a maximal $\sheaf O_S$-order in $\Delta$.  Then the Brauer-Severi variety $\BS(\sheaf A)$ of $\sheaf A$ is unirational.
+\end{lem}
+\begin{proof}
+Using the same $f: Y\rightarrow S$ as above, we have that
+$$\BS(\sheaf A)\times_S Y\cong \BS(f^*\sheaf A) \cong \bbp^1_Y.$$
+Projection onto the first factor then gives us a surjection $\bbp^1_Y\rightarrow \BS(\sheaf A)$, and since $Y$ is rational this proves that $\BS(\sheaf A)$ is unirational.
+\end{proof}

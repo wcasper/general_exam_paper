@@ -1,0 +1,131 @@
+
+\section{Brauer Group of a Nonsingular Surface}
+\subsection{Some Etale Cohomology}
+In this section, we turn our attention to the Brauer group of a nonsingular integral scheme $X$, focusing primarily on the case of a nonsingular surface.  In the nonsingular case, the cohomological Brauer group of $X$ injects into the Brauer group of its function field $K$.  Furthermore, coprime to the characteristic of $K$, the cokernel of this may be described by certain ramification data on the divisors of $X$.  Specifically, we have the following main theorem
+\begin{thm}
+Let $X$ be a nonsingular, excellent, integral scheme.  If $\ell$ is coprime to the characteristic of $K$, then we have an $\ell$-exact sequence
+$$0\rightarrow \Br'(X)\rightarrow\Br(K)\xrightarrow{\rho} \bigoplus_{x\in X^1} H^1(X,i_*(\bbq/\bbz))\rightarrow H^3(X^1,\bbg_m)\rightarrow H^3(X,\bbg_m).$$
+\end{thm}
+Here $X^1$ represents the set of codimension $1$ points of $X$, and by $H^p(X^1,\bbg_m)$, we mean $\lim H^p(U,\bbg_m)$ where the limit is taken over all complements $U$ of closed subsets of $X$ with codimension at least two.  In other words, we are taking cohomology viewing $X^1$ as a pro-object in our category.  The map $\rho$ has an interesting algebraic interpretation.  In particular, given a central simple $K$-algebra $\Delta$, there exists a nonempty open subset of $X$ to which $\Delta$ extends to an Azumaya algebra.  A Zorn's lemma argument then tells us that there exists a largest such open set $U$.  In fact, if we let $\sheaf A$ be a maximal $\sheaf O_X$-algebra in $\Delta$, then the set of $x\in X$ for which $\sheaf A_x$ is Azumaya is exactly $U$.  One may show that $X\diff U$ is the union of the closures $C_x$ of the $x\in X^1$ for which $\rho([\Delta])_x$ is nonzero.
+
+The relationship extends even further than this.  The cohomology group $H^1(\kappa(x),\bbq/\bbz)$ classifies cyclic extensions of $\kappa(x)$.  Since $X$ is nonsingular, for each $x\in X^1$ the local ring $\sheaf O_{X,x}$ is a DVR with valuation $\nu_x$ and residue field $\kappa(x)$.  Since $\sheaf A_x$ is a maximal order on $\sheaf O_{X,x}$ the theory of maximal orders on DVRs tells us that $\sheaf A_x/J(\sheaf A_x)$ is a central simple algebra, whose center is a cyclic extension of $k(x)$, and therefore represented up to isomorphism by an element of $H^1(\kappa(x),\bbq/\bbz)$.  One may show that this element is $\rho([\Delta])_x$.
+
+To prove our main theorem, we start by recognizing that the fact that for nonsingular $X$ the sheaf of Cartier divisors $D$ has a simple description.
+\begin{lem}
+Let $D$ be the sheaf of Cartier divisors on $X$.  Then there is an isomorphism of sheaves on the small Zariski/etale site of $X$:
+$$D\cong \sum_{x\in X^1}i_{x*}\bbz.$$
+\end{lem}
+\begin{proof}
+By definition, $D = i_{\eta*}\bbg_m/\bbg_m$.  Therefore it suffices to show that the sequence
+$$0\rightarrow\bbg_m\rightarrow i_{\eta*}\bbg_m \xrightarrow{\rho} \sum_{x\in X^1}i_{x*}\bbz\rightarrow 0$$
+is exact on the small Zariski site of $X$, where here $\rho$ is the map defined by $s\mapsto (\nu_x(s))_x$.  This in turn is verified by checking stalks.
+\end{proof}
+
+As a consequence of the previous lemma, we have a long exact sequence in cohomology
+\begin{equation}\label{les form1}
+\bigoplus_{x\in X^1}H^1(X, i_{x*}\bbz) \rightarrow H^2(X,\bbg_m)\rightarrow H^2(X,i_{\eta*}\bbg_m)\rightarrow \bigoplus_{x\in X^1}H^2(X, i_{x^*}\bbz)\rightarrow \dots
+\end{equation}
+The majority of the rest of this section is devoted to showing that this exact sequence may be wrangled to give us the long exact sequence in the statement of Theorem FIXME.
+\begin{lem}
+Let $Y$ be an integral scheme with generic point $\eta$, and let $f: \eta\rightarrow\bbz$ be the inclusion.  Then
+\begin{enumerate}[(a)]
+\item  $H^1(Y,f_*\bbz) =0$
+\item  $H^i(Y,f_*\bbq) =0$ for all $i>0$
+\item  $H^i(Y,f_*\bbz)\cong H^{i-1}(Y,f_*(\bbq/\bbz))$ for all $i>1$
+\end{enumerate}
+\end{lem}
+\begin{proof}\mbox{}
+\begin{enumerate}[(a)]
+\item  The Leray spectral sequence for $f$ shows that there is an injection $H^1(Y,f_*\bbz)\rightarrow H^1(\eta,\bbz)$.  Moreover, $H^1(\eta,\bbz)\cong H^1(K(Y),\bbz)$ and since all finite groups map trivially into $\bbz$, this latter cohomology group is trivial.  Hence $H^1(Y,f_*\bbz)$ is trivial.
+\item  For all $j>0$ and all $y\in Y$, we have $(R^jf_*\bbq)_x \cong H^j(K(\wt{\sheaf O_{Y,y}}),\bbq)$, where here $\wt{\sheaf O_{Y,y}}$ represents the etale stalk of $\sheaf O_Y$ at $y$.  Note that for \emph{any} finite group $G$, the group cohomology $H^j(G,\bbq)$ is $0$ for $j>0$, because the inflation/restriction sequence shows that $|G|$ kills all the homology groups, and is also invertible.  Therefore $R^jf_*\bbq = 0$ for all $j>0$, and the Leray spectral sequence for $f$ tells us that $H^j(Y,f_*\bbq)\cong H^j(K(Y),\bbq)$.  By the same argument, $H^j(K(Y),\bbq) = 0$ and therefore $H^j(Y,f_*\bbq) = 0$.
+\item  The short exact sequence of sheaves on $Y$
+$$0\rightarrow f_*\bbz\rightarrow f_*\bbq\rightarrow f_*(\bbq/\bbz)$$
+induces a long exact sequence in cohomology, which by the result of (b) gives us isomorphisms $H^i(Y,f_*\bbz)\cong H^{i-1}(Y,f_*(\bbq/\bbz))$ for all $i>1$.
+\end{enumerate}
+\end{proof}
+
+\begin{cor}
+Let $X$ be a nonsingular integral scheme.  Then for all codimension $1$ points $x\in X$
+\begin{enumerate}[(a)]
+\item  $H^1(X,(i_x)_*\bbz) = 0$
+\item  $H^i(X,(i_x)_*\bbz) \cong H^{i-1}(X,(i_x)_*\bbq/\bbz)$ for all $i>1$
+\end{enumerate}
+\end{cor}
+\begin{proof}
+Let $C$ be the irreducible codimension $1$ subscheme of $X$ corresponding to $x$.  Since $X$ is nonsingular, for any abelian group $A$, we have $(i_x)_*A \cong j_*f_*A$, where $j: C_x\rightarrow X$ is the inclusion of the irreducible, codimension $1$ subscheme $C_x$ of $X$ for which $x$ is the generic point, and $f: x\rightarrow C_x$ is the inclusion of the generic point.  The corollary then follows from the previous lemma.
+\end{proof}
+As a consequence of the previous corollary, we now have that the long exact sequence obtained from the sheaf of Cartier divisors looks like
+\begin{equation}\label{les form2}
+0\rightarrow \Br'(X)\rightarrow H^2(X,i_{\eta*}\bbg_m)\rightarrow \bigoplus_{x\in X^1}H^1(X, i_{x^*}(\bbq/\bbz))\rightarrow H^3(X,\bbg_m)\rightarrow H^3(X,i_{\eta*}\bbg_m)
+\end{equation}
+To finish the proof of the main theorem, it would be nice to obtain an $\ell$-exact isomophism $H^i(X,(i_\eta)_*\bbg_m)\cong H^i(K,\bbg_m)$.  However, this is not actually the case!  The real key to the rest of the argument lies in the fact that elements of $H^2(X,\bbg_m)$ are determined by their behavior in codimension $0$ and $1$.  More specifically, we have the following lemma:
+\begin{lem}
+Let $X$ be a nonsingular, excellent, integral scheme with fraction field $K$.  Then $H^2(X,\bbg_m)\cong H^2(X^1,\bbg_m)$.
+\end{lem}
+\begin{proof}
+This is a little weird...
+\end{proof}
+Therefore, by replacing $X$ with $U$ in our long exact sequence, and taking the limit over all complements of closed subschemes of $X$ with codimension at least two, we obtain a long exact sequence
+\begin{equation}\label{les form3}
+0\rightarrow \Br'(X)\rightarrow H^2(X^1,i_{\eta*}\bbg_m)\rightarrow \bigoplus_{x\in X^1}H^1(X, i_{x*}(\bbq/\bbz))\rightarrow H^3(X^1,\bbg_m)\rightarrow H^3(X^1,i_{\eta*}\bbg_m)
+\end{equation}
+where we have used the fact that $i_{x*}(\bbq/\bbz)$ is supported in codimension $0$ and $1$, so that $H^1(X,i_{x*}(\bbq/\bbz)) = H^1(X^1,i_{x*}(\bbq/\bbz))$.  Thus to finish the proof of our big theorem, it remains to prove that $H^p(X^1,i_{\eta*}\bbg_m)\cong H^j(K,\bbg_m)$ for $j>1$.
+
+\begin{lem}
+Let $X$ be a nonsingular integral scheme, with generic point $\eta$ and fraction field $K$.  Let $\ell$ be a prime different from the characteristic of $K$.  Then for $j>0$ the sheaf $R^j(i_\eta)_*\bbg_m$ has support in codimension $\geq 2$.
+\end{lem}
+\begin{proof}
+It suffices to show that the (etale) stalks at each codimension $1$ point of the sheaf $R^j(i_\eta)_*\bbg_m$ are trivial.  Suppose that $x\in X$.  Then there is an isomorphism
+$$(R^j(i_\eta)_*\bbg_m)_x\cong H^j(K(\wt{\sheaf O_{X,x}}),\bbg_m).$$
+If $x$ is a point of codimension $1$, then $K(\wt{\sheaf O_{X,x}})$ is the fraction field of an irreducible curve over a separably closed field, and hence has $\ell$-cohomological dimension $1$.  Hence the $\ell$-principal part of $(R^j(i_\eta)_*\bbg_m)_x$ is $0$ for $j>1$.  Moreover, this also shows that $R^1(i_\eta)_*\bbg_m = 0$ by Hilbert's Theorem 90.
+\end{proof}
+
+\begin{lem}
+Let $X$ be a nonsingular, integral scheme with fraction field $K$.  Let $\ell$ be a prime number different from the characteristic of $K$.  Then
+$$H^j(X^1,(i_\eta)_*\bbg_m)(\ell)\cong H^j(K,\bbg_m)(\ell).$$
+\end{lem}
+\begin{proof}
+Let $\eta$ be the generic point of $X$.  Then since $R^1(i_\eta)_*\bbg_m = 0$ and $R^j(i_\eta)_*\bbg_m(\ell)$ is supported in codimension $\geq 2$ for all $j>1$, the Leray spectral sequence for $i_\eta: \eta\rightarrow X^1$ tells us that $H^j(X^1,\bbg_m)(\ell)\cong H^j(K,\bbg_m)(\ell)$ for all $j>1$.
+\end{proof}
+
+Putting this all together, the main theorem follows immediately.
+\begin{proof}[Proof of the Main Theorem]
+Clear from the above discussion.
+\end{proof}
+
+As a consequence of the main theorem, we see that there are canonical inclusions
+$$\Br(X)\subseteq \Br'(X)\subseteq H^2(X,(i_\eta)_*\bbg_m)\subseteq \Br(K).$$
+
+In the case that $X$ is a nonsingular, $2$-dimensional integral scheme, the first inclusion is actually an isomorphism
+\begin{prop}
+Let $X$ be a nonsingular, $2$-dimensional integral scheme.  Then the canonical inclusion $\Br(X)\subseteq \Br'(X)$ is an isomorphism.
+\end{prop}
+\begin{proof}
+Suppose that $[d]\in \Br'(X)$, and let $[\Delta]$ be its image in $\Br(K)$.  Let $\sheaf A$ be a maximal $\sheaf O_X$-order in $\Delta$.  Then $\sheaf A_x$ is a maximal $\sheaf O_{X,x}$-order in $\Delta$.  Since the latter factors through $\Br(X)\rightarrow\Br(\sheaf O_{X,x})$, it follows that $\sheaf A_x$ is Azumaya.  Furthermore, since $\sheaf A$ is maximal, it must be reflexive.  Hence $\sheaf A$ is Azumaya, and $[\sheaf A]\mapsto [\Delta]\in \Br(K)$.  Hence $[\sheaf A]\mapsto [d]\in \Br'(X)$.
+\end{proof}
+
+\subsection{Artin-Mumford Spectral Sequence}
+In this section, we prove the following main theorem of Artin and Mumfords paper.
+\begin{thm}[Artin-Mumford]\label{Artin-Mumford exact sequence}
+Let $X$ be a simply connected smooth projective surface over an algebraically closed field $k$.  Then for any prime integer $\ell$ invertible in $K$, there is an $\ell$-exact sequence
+$$0\rightarrow\Br(X)\rightarrow\Br(K)\xrightarrow{\rho}\bigoplus_{x\in X^1} H^1(\kappa(x),\bbq/\bbz)\xrightarrow{a}\bigoplus_{x\in X^2} \mu^{-1}\xrightarrow{\sum}\mu^{-1}\rightarrow 0,$$
+where $X^i$ represents the set of codimension $i$ points of $X$.
+\end{thm}
+
+\begin{lem}
+Let $f: X^1\rightarrow X$.  Then there is an exact sequence
+$$0\rightarrow H^3(X,\bbg_m)\rightarrow H^3(X^1,\bbg_m)\rightarrow \bigoplus_{x\in X_0} (j_x)_*\mu^{-1}\rightarrow H^4(X,\bbg_m)\rightarrow 0.$$
+\end{lem}
+\begin{proof}
+Since $R^0f_*\bbg_m = \bbg_m$, $R^3f_*\bbg_m = \bigoplus_{x\in X_0} (j_x)_*\mu^{-1}$ and $R^qf_*\bbg_m = 0$ otherwise, this just falls out of the Leray spectral sequence for $f$.  There is a minor point about $H^4(X^1,\bbg_m)=0$ FIXME.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{Artin-Mumford exact sequence}]
+First note that since $X$ is simply connected, $H^3(X,\bbg_m) = 0$.  Also, since $K$ is the fraction field of a nonsingular surface over an algebraically closed field $k$, the $\ell$-cohomological dimension of $K$ is two.  In particular $H^3(K,\bbg_m) = 0$.  Taking the $\ell$-exact sequence
+$$0\rightarrow \Br(X)\rightarrow\Br(K)\xrightarrow{\rho}\bigoplus_{x\in X^1_0} H^1(\kappa(x),\bbq/\bbz)\rightarrow H^3(X^1,\bbg_m)\rightarrow  \overbrace{H^3(K,\bbg_m)}^{=0}$$
+and combining it with the exact sequence of the previous lemma, we have the $\ell$-exact sequence
+$$0\rightarrow \Br(X)\rightarrow\Br(K)\xrightarrow{\rho}\bigoplus_{x\in X^1_0} H^1(\kappa(x),\bbq/\bbz)\rightarrow \bigoplus_{x\in X_0}(j_x)_*\mu^{-1}\rightarrow H^4(X,\bbg_m)\rightarrow 0.$$
+The last part then follows from $H^4(X,\bbg_m) = \mu^{-1}$.
+\end{proof}
+
+
