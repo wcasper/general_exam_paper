@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX)
 [1994/12/01]% LaTeX date must December 1994 or later
 \documentclass[draft]{article}
-\pagestyle{headings}
+% \pagestyle{headings}
 
 \title{Maximal Orders in Quaternion Algebras on Surfaces}
 \author{W.R. Casper}
@@ -11,7 +11,7 @@
 \usepackage{mathrsfs,mathabx}
 \usepackage[all]{xy}
 
-\usepackage[nottoc]{tocbibind}
+%\usepackage[nottoc]{tocbibind}
 \usepackage{enumerate}
 
 %    Some definitions useful in producing this sort of documentation:
@@ -67,6 +67,7 @@
 \newcommand{\bbgl}{\mathbb{GL}}
 \newcommand{\bbpgl}{\mathbb{PGL}}
 \newcommand{\p}{\mathfrak{p}}
+\newcommand{\m}{\mathfrak{m}}
 \newcommand{\catc}{\mathcal{C}}
 \newcommand{\sheaf}[1]{\mathcal{#1}}
 \newcommand{\height}{\textnormal{ht}}
@@ -94,7 +95,7 @@
 \newcommand{\Hom}{\textnormal{Hom}}
 \newcommand{\Aut}{\textnormal{Aut}}
 \newcommand{\vspan}{\textnormal{span}}
-\newcommand{\spec}{\textnormal{spec}}
+\newcommand{\spec}{\textnormal{Spec}}
 \newcommand{\ram}{\textnormal{ram}}
 
 \newcommand{\FBS}{\mathfrak{BS}}
@@ -107,6 +108,7 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 %\markboth{Sample paper for the {\protect\ntt\lowercase{amsmath}} package}
 %{Sample paper for the {\protect\ntt\lowercase{amsmath}} package}
 \renewcommand{\sectionmark}[1]{}
@@ -114,11 +116,10 @@
 
 \include{introduction}
 \include{azumaya}
+\include{brauer_severi}
 \include{classical_orders}
 \include{general_orders}
 \include{brauer}
-\include{brauer_severi}
-\include{quaternion}
 \include{unirational}
 
 \newpage

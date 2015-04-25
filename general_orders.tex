@@ -1,4 +1,124 @@
 \section{Maximal Orders on Integral Schemes}
+In this section, let $X$ be a normal integral scheme with fraction field $K$, and let $\Delta$ be a CSA over $K$.  The constant sheaf on $X$ associated to $\Delta$ defines a sheaf of $\sheaf O_X$-algebras, which as an abuse of notation we also denote by $\Delta$.
 \subsection{Basic Definitions and Facts}
+\begin{defn}
+An \vocab{$\sheaf O_X$-order in $\Delta$} is a coherent $\sheaf O_X$-module $A$ which is also a $\sheaf O_X$-subalgebra of $\Delta$.  The $\sheaf O_X$-order $A$ is \vocab{maximal} if it is not properly contained in any other $\sheaf O_X$-order in $\Delta$.
+\end{defn}
 
-\subsection{Orders in Quaternion Algebras on Surfaces}
+\begin{prop}
+Let $A$ be a $\sheaf O_X$-order in $\Delta$.  Then the following are equivalent
+\begin{enumerate}[(a)]
+\item  $A$ is maximal
+\item  $A_x$ is maximal for all $x\in X$
+\item  $A$ is reflexive and $A_x$ is maximal for all $x\in X^1$
+\end{enumerate}
+where here $X^1$ denotes the set of codimension $1$ points of $X$.
+\end{prop}
+
+\begin{prop}
+Every $\sheaf O_X$-order in $\Delta$ is contained in a maximal $\sheaf O_X$-order in $\Delta$.
+\end{prop}
+
+\begin{prop}
+If $A$ is an $\sheaf O_X$-order in $\Delta$ which is Azumaya, then $A$ is a maximal $\sheaf O_X$-order in $\Delta$.
+\end{prop}
+
+\subsection{Ramification}
+Let $X$ be a normal integral scheme with fraction field $K$, and let $\Delta$ be a CSA over $K$ of degree $n$.
+\begin{defn}
+Let $A$ be a maximal $\sheaf O_X$-order in $\Delta$.  We define the \vocab{ramification locus} of $\Delta$ over $R$, denoted $\ram(\Delta/X)$, to be the set of all $x\in X$ such that $A_x$ is not an Azumaya algebra.  The complement of the ramification locus is called the $\vocab{Azumaya locus}$ of $\Delta$ over $X$.
+\end{defn}
+
+\begin{lem}
+The ramification locus $\ram(\Delta/X)$ is independent of the choice of maximal $\sheaf O_X$-order $A$ in $\Delta$.
+\end{lem}
+
+\begin{prop}
+If $\Delta$ and $\Delta'$ are representatives of the same Brauer class over $K$, then $\ram(\Delta/X) = \ram(\Delta'/X)$.
+\end{prop}
+
+\begin{prop}
+The ramification locus $\ram(\Delta/X)$ is a union of finitely many irreducible, codimension $1$ subschemes of $X$.
+\end{prop}
+In particular this shows that there is a dense open subscheme of $X$ on which $\Delta$ is represented by an Azumaya algebra.
+
+\begin{prop}
+Let $A$ be a maximal $\sheaf O_X$-order in $\Delta$, and consider the canonical morphism $\pi: \BS(A)\rightarrow X$.
+\begin{enumerate}[(a)]
+\item  $\BS(A)$ is nonsingular over $k$, and $\pi$ is proper and flat
+\item  for all $x\in X$, $\BS(A)_x$ is reducible if and only if $x\in \ram(\Delta/X)$
+\item  for all $x\in X\diff \ram(\Delta/X)$, the fibre $\BS(A)_x \cong \bbp^{n-1}_{\kappa(x)}$
+\end{enumerate}
+\end{prop}
+
+\subsection{Maximal Orders in Quaternion Algebras on Surfaces}
+In this section, let $S$ be a complete, non-singular algebraic surface over an algebraically closed field $k$ with characteristic different from $2$.  We explore the presentation of maximal $\sheaf O_S$-orders in quaternion $K(S)$-algebras.
+\begin{prop}
+Let $\Delta$ be a quaternion algebra over $K(S)$ with nonsingular ramification curve $C$.  Let $\sheaf{A}$ be a maximal $\sheaf O_S$-order in $\Delta$.  Then for any $s\in C$,
+$$\sheaf{A}_s \cong \sheaf O_{S,s}\langle x,y\rangle/(x^2-a,y^2-bt,xy+yx),$$
+where $a,b\in\sheaf O_{S,s}^*$, with $a$ not a square (modulo $t$), and $t\in \sheaf O_{S,s}$ is a local equation for $C$.
+\end{prop}
+\begin{proof}
+Since $C$ is nonsingular, it is a disjoint union of nonsingular algebraic curves $C_1,\dots, C_n$ in $S$.  Let $c_i$ be the generic point of $C_i$.  Then $\sheaf O_{S,c_i}$ is a DVR $(R_i,\nu_i)$ with fraction field $K(S)$ and residue field $K(C_i)$.  Furthermore, $A_i := \sheaf A_{c_i}$ is a maximal $R_i$-order in $\Delta$.  Let $t_i$ be a uniformizer of $R_i$, and let $J_i$ be the Jacobson radical.  From the classical theory of maximal orders, $L_i := A_i/J_i$ is a cyclic extension of $K(C_i)$.  Furthermore, since $[\Delta]$ has order $2$ in $\Br(K(S))$, $L_i$ is a degree $2$ extension and $J_i^2 = A_it$ FIXME.
+
+Let $\trd: A_i\rightarrow R_i$ and $\det: A_i\rightarrow R_i$ represent the reduced norm and trace on $A_i$.  Choose $x_0\in A_i$ such that $x_0$ reduces to a cyclic generator $\ol x_0$ of $L_i$ modulo $J_i$.  Then $\ol x_0^2\in K(L_i)$, and since $x_0$ also satisfies $x_0^2 - \trd(x_0)x_0 + \det(x_0) = 0$, it follows that $\trd(x_0)\in J_i$.  Then $x := x_0-\trd(x_0)$ reduces to the cyclic generator $\ol x_0$ modulo $J_i$ and has reduced trace $0$, so that $x^2 = -\det(x) = a\in R_i^*$.
+
+Next note that $A_i$ comes equipped with an involution $z\mapsto z^* := -z + \trd(z)$.  Since $J_i$ is the unique prime ideal containg $t$ and $t^*=t$, $J_i$ will be preserved by $*$.  Therefore for all $z\in J_i$, $\trd(z) = z + z^* \in J_i\cap R_i = tR_i$.  Furthermore, since $J_i^2 = tA_i$, it follows that $z$ is equivalent to $z'$ modulo $J_i^2$, where
+$$z' = z - \frac{1}{2}\trd(z) - \frac{1}{2a}\trd(xz),$$
+satisfies $\trd(z') = \trd(xz') = 0$.  Thus by means of the $L_i$-linear homomorphism
+$$J_i/J_i^2\xrightarrow{\cong} J\otimes_R (L_i)\xrightarrow{\subseteq} A\otimes_R L_i\xrightarrow{\cong} M_2(L_i),$$
+we may identify $J_i/J_i^2$ with the two-dimensional subspace of $M_2(L_i)$ consisting of matrices $z$ satisfying $\trd(z) = \trd(xz) = 0$ (where here $x$ is identified with its image in $M_2(L_i)$).  In particular $J_i/J_i^2$ is two-dimensional as a vector space over $L_i$.  Take $y\in J_i$ nonzero with $\trd(y) = \trd(xy) = 0$.  Then $\{y,xy\}$ is a $L_i$-linearly independent set, and hence a basis for $J_i/J_i^2$.  Nakayama's lemma then tells us that $\{y,xy\}$ generates $J_i$ as an $R_i$-module.  Consequently $\{1,x,y,xy\}$ generates $A_i$ as an $R_i$-module.  Note that since $S$ is smooth, $A_i$ is free of rank $4$, and therefore this is in fact an $R_i$-module basis.  Note also that we can calculate the discriminant of $A_i$ using this basis to be $-16a^2b^2$.
+
+Now since $x,y,xy$ all have zero reduced trace,
+$$-xy = (xy)^* = y^*x^* = (-y)(-x) = yx.$$
+Furthermore, since $y^2 = -\det(y)\in J_i\cap R = At$, we may write $y^2 = bt$ for some $b\in A$.  Thus we may define a map
+$$R\langle x,y\rangle/(x^2-a,y^2-bt,xy+yx)\rightarrow A_i,$$
+and since the $\{1,x,y,xy\}$ form an $R_i$-module basis, this is an $R_i$-algebra isomorphism.  Since $x$ module $J_i$ generates $L_i$, it's clear that $x$ is a unit and $x$ is not a square modulo $t$.  Moreover, $b$ nonzero since $\Delta$ has no nilpotent elements.  If $b$ is not a unit, then we can write $b = b_0t^m$ for some $m$, in which case $y\mapsto ty$ includes $A_i$ into the larger $R$-order $R\langle x,y\rangle/(x^2-a,y^2-b_0t^{m-2},xy+yx)$, contradicting the maximality of $A_i$.  This proves that $\sheaf A_s$ has the required presentation in the case that $s$ is a generic point.
+
+Next suppose that $s$ is a closed point of $C_i$, and let $A = \sheaf A_s$.  Again by smoothness, $A$ is a free $\sheaf O_{X,s}$-module of rank $4$.  Let $J$ be the kernel of the natural $\sheaf O_{X,s}$-module map
+$$A\rightarrow\sheaf A_i\rightarrow L_i.$$
+This identifies the quotient $A/J$ with a subring of $L_i$.  Hence $A/J$ is a finitely generated $\sheaf O_{C,s}$-submodule of $L$ (hence torsion free), and since $\sheaf O_{C,s}$ is a PID $A/J$ is free.  Moreover, since $(A/J)\otimes_{\sheaf O_{C,s}} K(C_i) = L_i$, $A/J$ has rank $2$.  Again as above, we may choose $x\in A$ such that $x^2 = a\in\sheaf O_{S,s}$ (ie. so that $x$ has reduced trace $0$) and such that $x$ reduces to a generator for $A/J$, and $u,v\in J$ such that $\{1,x,u,v\}$ is a $\sheaf O_{S,s}$-module basis for $A$.  Using the same strategy as before, we may choose $u$ and $v$ to have reduced trace $0$.
+
+Since $A$ is a maximal $\sheaf O_{X,x}$-order in $\Delta$, it should be Azumaya everywhere except on $C$.  Therefore the bilinear form defined by the reduced trace on $A$ degenerates exactly on $C$, meaning that the discriminant of $A$ should be of the form $\varepsilon t^r$ for some integer $r>0$ and unit $\epsilon\in A^*$.  Moreover, locally at the generic point of $C_i$ the discriminant should agree with the descriminant of $A_i$, so $r=2$. However, calculating the discriminant with respect to the basis $\{1,x,u,v\}$, the fact that $\trd(x^2) = 2a$ and $\trd(ux),\trd(vx),\trd(u^2),\trd(v^2),\trd(uv)$ are all in $J\cap \sheaf A_s = t\sheaf A_s$, we see that the discriminant is of the form $4a\xi t^2 + \eta t^3$ for some $\xi,\eta\in \sheaf O_X$, from which it follows that $4a\xi = \varepsilon$ and therefore $a$ is a unit.
+
+Now since $a$ is a unit $A/J = \sheaf O_{C,s}[x]$ is a semilocal Dedekind domain, in particular a PID.  Thus $J/At$, being a $\sheaf O_{C,s}[x]$ submodule of the free module $J_i/tA_i$, is also free.  Since $(J_i/tA_i)\otimes L_i\cong J_i/J_i^2$ is a free rank $1$ module over $L_i[x]$, we see that $J_i/tA_i$ has rank $1$ over $\sheaf O_{C,s}[x]$.  Let $y$ be a generator; as before we may choose $y$ such that $\trd(y) = \trd(xy) =0$.  Then again $y^2 = bt$ for some $b\in\sheaf O_{X,s}$, $xy = -yx$ and computing the discriminant with respect to this basis we find $-16a^2b^2t^2 = \varepsilon t^2$, and therefore $b$ is a unit.  This verifies the desired presentation in the case that $s$ is a closed point.
+\end{proof} 
+
+\begin{prop}
+Let $[\Delta]$ be the class of a quaternion algebra $\Delta$ over $K(S)$ with nonsingular ramification curve $C$, and let $\sheaf A$ be a maximal $\sheaf O_S$-order in $\Delta$.  Then $\pi: \BS(\sheaf A)\rightarrow S$ satisfies the following properties
+\begin{enumerate}[(a)]
+\item  $\BS(\sheaf A)$ is nonsingular (over $k$?) and $\pi$ is proper and flat
+\item  if $s\in S$ is a geometric point then
+$$\BS(\sheaf A)_s = \left\lbrace \begin{array}{cl}
+\bbp^1_{k},              & s\notin C\\
+\bbp^1_{k}\vee\bbp^1_{k},& s\in    C
+\end{array}\right.$$
+\item  if $c_i$ is a generic point of an irreducible component $C_i$ of $C$, then the fraction fields each of the irreducible components of $\BS(\sheaf A)_c$ define quadratic extensions of $K(C_i)$
+\end{enumerate}
+\end{prop}
+\begin{proof} Let $i: \spec(\kappa(s))\rightarrow s$.  By Lemma FIXME, $\BS(\sheaf A)_s = \BS(i^*\sheaf A)$.
+\begin{enumerate}[(a)]
+\item  $\pi: \BS(\sheaf A)\rightarrow S$ is projective, and $S$ is nonsingular over $k$
+\item  Since $\sheaf A$ is Azumaya at $s$, $i^*\sheaf A\cong M_2(k)$.  Therefore by Example FIXME, we have that
+$$\BS(\sheaf A)_s = \BS(M_2(k)) = \bbp^1_k.$$
+\item
+From the local presentation at $s\in C_i$, we have that
+$$\sheaf A_s\otimes\kappa(s) \cong\left(\begin{array}{cc}
+k & k\\
+0 & k
+\end{array}\right).$$
+which has corresponding Brauer-Severi variety $\bbp^1_k\vee\bbp^1_k$ by Example FIXME.
+\item
+Let $R_i = \sheaf O_{S,c_i}$, and let $j: \spec(R_i)\rightarrow S$.  Then $i$ factors through $j$ and therefore
+$$\BS(\sheaf A)_{c_i} = \BS(i^*\sheaf A) = \BS(j^*\sheaf A)_{c_i}.$$
+Moreover the local presentation of $\sheaf A_s$ and Example FIXME
+$$\BS(j^*\sheaf A) = V(X^2 - aY^2 - btZ^2)\subseteq \bbp^2_{R_i},$$
+where $a,b\in R_i^*$ with $a$ not a square and $t$ generates the the unique maximal ideal of $R_i$.  It follows that $\BS(\sheaf A)_{c_i} = V(X^2-aY^2)\subseteq \bbp^2_{K(C_i)}$, which has two irreducible components whose residues define the quadratic extension $K(C_i)[\sqrt{a}]$ of $K(C_i)$.
+\end{enumerate}
+\end{proof}
+
+\begin{prop}
+Let $\Delta$ be a quaternion algebra over $K(S)$ with nonsingular ramification curve $C$, and let $\sheaf A$ be a maximal $\sheaf O_S$-order in $\Delta$.  If $C$ is disconnected, then $\BS(\sheaf A)$ has $2$-torsion in $H^4(\BS(\sheaf A),\bbz_2)$.
+\end{prop}
+
+
