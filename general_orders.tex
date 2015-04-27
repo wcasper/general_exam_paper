@@ -120,5 +120,11 @@ where $a,b\in R_i^*$ with $a$ not a square and $t$ generates the the unique maxi
 \begin{prop}
 Let $\Delta$ be a quaternion algebra over $K(S)$ with nonsingular ramification curve $C$, and let $A$ be a maximal $\sheaf O_S$-order in $\Delta$.  If $C$ is disconnected, then $\BS(A)$ has $2$-torsion in $H^4(\BS(A),\bbz_2)$.
 \end{prop}
+\begin{proof}
+For convenience, we let $V = \BS(A)$ and use $\pi: V\rightarrow S$ for the canonical morphism.  Let $C_1,\dots, C_r$ be the connected components of $C$, and for each $i$ let $x_i\in C_i$, and let $\ell_i$ be one of the irreducible components of $V_{x_i}\cong \bbp^1_{\kappa(x_i)}\vee\bbp^1_{\kappa(x_i)}$.  Let $j_i$ be the inclusion of $\ell_i$ into $V$.  Then $\ell_i$ is an irreducible codimension $2$ subvariety of $V$, so the cycle map $\cl_V$ sends the identity of $H^0(\ell_i,\mu_2^{\otimes-1})\stackrel{\text{Gysin}}{\cong} H^4_{\ell_i}(V,\mu_2)$ to an element $\cl_{V}(\ell_i)$ of $H^4(V,\mu_2)$.
+Then the composition
+$$H^2(V,\mu_2)\xrightarrow{j_i^*} H^2(\ell_i,\mu_2)\stackrel{\text{Gysin}}{\cong} H^6_{\ell_i}(V,\mu_2^{\otimes 2})\rightarrow H^6(V,\mu_2^{\otimes 2})$$
+agrees with the cup product map $\cl(\ell_i)\cup\cdot: H^2(V,\mu_2)\rightarrow H^6(V,\mu_2^{\otimes 2})$.
+\end{proof}
 
 
