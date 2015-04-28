@@ -121,14 +121,23 @@ where $a,b\in R_i^*$ with $a$ not a square and $t$ generates the the unique maxi
 Let $\Delta$ be a quaternion algebra over $K(S)$ with nonsingular ramification curve $C$, and let $A$ be a maximal $\sheaf O_S$-order in $\Delta$.  If $C$ is disconnected, then $\BS(A)$ has $2$-torsion in $H^4(\BS(A),\bbz_2)$.
 \end{prop}
 \begin{proof}
-For convenience, we let $V = \BS(A)$ and use $\pi: V\rightarrow S$ for the canonical morphism.  Let $C_1,\dots, C_r$ be the connected components of $C$, and for each $i$ let $x_i\in C_i$, and let $\ell_i$ be one of the irreducible components of $V_{x_i}\cong \bbp^1_{\kappa(x_i)}\vee\bbp^1_{\kappa(x_i)}$.  Let $j_i$ be the inclusion of $\ell_i$ into $V$.  Then $\ell_i$ is an irreducible codimension $2$ subvariety of $V$, so the cycle map $\cl_V$ sends the identity of $H^0(\ell_i,\mu_2^{\otimes-1})\stackrel{\text{Gysin}}{\cong} H^4_{\ell_i}(V,\mu_2)$ to an element $\cl_{V}(\ell_i)$ of $H^4(V,\mu_2)$.
+For convenience, we let $V = \BS(A)$ and use $\pi: V\rightarrow S$ for the canonical morphism.  Let $C_1,\dots, C_r$ be the connected components of $C$, and for each $i$ let $x_i\in C_i$, and let $\ell_i$ be one of the irreducible components of $V_{x_i}\cong \bbp^1_{\kappa(x_i)}\vee\bbp^1_{\kappa(x_i)}$.  Let $j_i$ be the inclusion of $\ell_i$ into $V$.  Then $\ell_i$ is an irreducible codimension $2$ subvariety of $V$, so the cycle map $\cl_V$ sends the identity of $H^0(\ell_i,\mu_2^{\otimes-1})\stackrel{\text{Gysin}}{\cong} H^4_{\ell_i}(V,\mu_2)$ to an element $\cl_{V}(\ell_i)$ of $H^4(V,\mu_2)$ of order $2$.
 Then the composition
 $$H^2(V,\mu_2)\xrightarrow{j_i^*} H^2(\ell_i,\mu_2)\stackrel{\text{Gysin}}{\cong} H^6_{\ell_i}(V,\mu_2^{\otimes 2})\rightarrow H^6(V,\mu_2^{\otimes 2})$$
-agrees with the cup product map $\cl(\ell_i)\cup\cdot: H^2(V,\mu_2)\rightarrow H^6(V,\mu_2^{\otimes 2})$.
+agrees with the cup product map $\cl_V(\ell_i)\cup\cdot: H^2(V,\mu_2)\rightarrow H^6(V,\mu_2^{\otimes 2})$.
 
-The Leray spectral sequence associated to $\pi$ tells us
-$$0\rightarrow H^2(S,\mu_2)\rightarrow H^2(V,\mu_2)\rightarrow H^0(S,R^2\pi_*\mu_2)\rightarrow H^3(S,\mu_2).$$
-Furthermore, since $S$ is simply connected we know that $H^3(S,\mu_2) = 0$.  Therefore 
+The map $\pi$ is proper, so by the proper base change theorem, we have that for all geometric points $x$ of $S$,
+$$(R^j\pi_*\mu_2)_x = H^j(V_x,\mu_2).$$
+Since the Picard groups of $\bbp^1_k$ and $\bbp^1_k\vee\bbp^1_k$ are torsion-free, the Kummer sequence tells us that $H^1(V_x,\mu_2) = 0$.  Therefore $R^1\pi_2\mu_2 = 0$.  Furthermore since $\pi$ is proper, $\pi_*\mu_2 = \mu_2$.  Notice also that $R^2\pi_*\mu_2$ fits into a short exact sequence
+$$0\rightarrow (\mu_2)_C\rightarrow R^2\pi_*\mu_2\rightarrow (\mu_2)_S\rightarrow 0.$$
+Moreover, the fact that $S$ is simply connected tells us that $H^2(S,\mu_2) = 0$.  Thus the Leray spectral sequence associated to $\pi$ tells us
+$$0\rightarrow H^2(S,\mu_2)\rightarrow H^2(V,\mu_2)\rightarrow H^0(S,R^2\pi_*\mu_2)\rightarrow 0.$$
+Take $\alpha\in (\mu_2)_C$ which is $1$ on $C_1$ and $0$ on $C_i$ for $i\neq 1$, let $\alpha'$ be its image in $R^2\pi_*(\mu_2)$, and let $\alpha''\in H^2(V,\mu_2)$ be a lift of $\alpha'$.  Then
+$$j_i^*\alpha'' = \left\lbrace\begin{array}{cc}
+1, & i=1\\
+0, & i\neq 1
+\end{array}\right.$$
+Therefore $(\cl_V(\ell_1)-\cl_V(\ell_2))\cup \alpha''$ is nonzero since $j_1^*\alpha''-j_2^*\alpha'' = 1-0\neq 0$, and thus $H^4(V,\mu_2)$ contains a nontrivial element of order $2$.
 \end{proof}
 
 
