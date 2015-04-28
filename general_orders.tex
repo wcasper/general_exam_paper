@@ -52,7 +52,7 @@ Let $A$ be a maximal $\sheaf O_X$-order in $\Delta$, and consider the canonical 
 \end{prop}
 
 \subsection{Maximal Orders in Quaternion Algebras on Surfaces}
-In this section, let $S$ be a complete, non-singular algebraic surface over an algebraically closed field $k$ with characteristic different from $2$.  We explore the presentation of maximal $\sheaf O_S$-orders in quaternion $K(S)$-algebras.
+In this section, let $S$ be a complete, simply connected, non-singular algebraic surface over an algebraically closed field $k$ with characteristic different from $2$.  We explore the presentation of maximal $\sheaf O_S$-orders in quaternion $K(S)$-algebras.
 \begin{prop}
 Let $\Delta$ be a quaternion algebra over $K(S)$ with nonsingular ramification curve $C$.  Let $A$ be a maximal $\sheaf O_S$-order in $\Delta$.  Then for any $s\in C$,
 $$A_s \cong \sheaf O_{S,s}\langle x,y\rangle/(x^2-a,y^2-bt,xy+yx),$$
@@ -125,6 +125,10 @@ For convenience, we let $V = \BS(A)$ and use $\pi: V\rightarrow S$ for the canon
 Then the composition
 $$H^2(V,\mu_2)\xrightarrow{j_i^*} H^2(\ell_i,\mu_2)\stackrel{\text{Gysin}}{\cong} H^6_{\ell_i}(V,\mu_2^{\otimes 2})\rightarrow H^6(V,\mu_2^{\otimes 2})$$
 agrees with the cup product map $\cl(\ell_i)\cup\cdot: H^2(V,\mu_2)\rightarrow H^6(V,\mu_2^{\otimes 2})$.
+
+The Leray spectral sequence associated to $\pi$ tells us
+$$0\rightarrow H^2(S,\mu_2)\rightarrow H^2(V,\mu_2)\rightarrow H^0(S,R^2\pi_*\mu_2)\rightarrow H^3(S,\mu_2).$$
+Furthermore, since $S$ is simply connected we know that $H^3(S,\mu_2) = 0$.  Therefore 
 \end{proof}
 
 
