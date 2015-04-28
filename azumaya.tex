@@ -68,6 +68,45 @@ If $c'$ is an fppf-twist of $G$, then $c'$ is an fppf locally isomorphic to the 
 The first cohomology group is known to agree with the standard cohomology group for $G$ abelian on any site, so from now on we will leave off the check symbol, and simply write $H^1(X_{site},G)$.  Moreover, for many of the groups we work with, the first cohomology groups for the etale and fppf sites will agree -- in such situations, we will simply write $H^1(X,G)$ to mean cohomology with respect to this site.
 \end{remk}
 
+\subsection{Gerbes and Nonabelian $H^2$}
+In this section, let $\catc$ and $\catb$ be categories, and $\varphi: \catc\rightarrow\catb$ a functor between them.
+\begin{defn}
+Suppose that $b\in\catb$.  We define the \vocab{fiber of $b$}, denoted $\varphi^{-1}(b)$, to be the category whose objects objecs in $\catc$ sent to $b$ under $\varphi$ and whose morphisms are morphisms sent to $\id_b$ under $\varphi$.
+\end{defn}
+
+\begin{defn}
+Consider two objects $c,c'$ of $\catc$ and a morphism $f:c'\rightarrow c$, and set $b = \varphi(c), b'=\varphi(c')$ and $g = \varphi(f):b'\rightarrow b$.  We call $f$ \vocab{Cartesian} if for all $x\in \varphi^{-1}(b')$, and for all $h\in \Hom_{\catc}(x,c)$ satisfying $\varphi(h) = g$ there exists a unique morphism $f_0\in\Hom_{\varphi^{-1}(c')}(x,c')$ satisfying $ff_0 = h$.
+\end{defn}
+
+\begin{defn}
+Let $\varphi: \catc\rightarrow\catb$ be a functor between categories $\catc$ and $\catb$.  We call the data $(\catc,\catb,\varphi)$ a \vocab{fibered category} if the following two properties hold
+\begin{enumerate}[(i)]
+\item  given $b',b\in\catb$, $c\in\varphi^{-1}(b)$ and $g: b'\rightarrow b$, there exists $c'\in\varphi^{-1}(b')$ and $f:c'\rightarrow c$ with $\varphi(f) = g$.
+\item  the composition of two Cartesian morphisms is Cartesian
+\end{enumerate}
+In this case the object $c'$ is unique up to canonical isomorphism and is called the \vocab{pullback of $c$}, denoted $g^*c$.
+\end{defn}
+
+Now consider the case when the base category $\catb$ is a site.
+\begin{defn}
+Let $(\catc,\catb,\varphi)$ be a fibered category, with $\catb$ a site.  Then $\varphi$ is a \vocab{prestack} if for any $b\in\catb$, and $a,a'\in\varphi^{-1}(b)$ the functor $F:\catc/b\rightarrow\Sets$ defined by
+$$(f:b'\rightarrow b)\mapsto \Hom(f^*a',f^*a)$$
+is a sheaf.
+\end{defn}
+
+\begin{defn}
+Let $(\catc,\catb,\varphi)$ be a fibered category, with $\catb$ a site.  Let $\mathfrak U = \{g_i: b_i\rightarrow b\}$ be a covering of an object $b\in\catb$.  Then there is a natural map from $\varphi^{-1}(b)$ to descent data on $\mathfrak U$.  If all descent data on $\mathfrak U$ arises in this way, then we say \vocab{descent is effective on $\mathfrak U$}.  If descent is effective for every choice of $\mathfrak U$ and $b$, we say descent is effective on $\varphi$.  A prestack on which descent is effective is called a \vocab{stack}.
+\end{defn}
+
+\begin{defn}
+Let $(\catc,\catb,\varphi)$ be a stack.  Then $\varphi$ is called a \vocab{gerbe} if it satisfies the following additional properties
+\begin{enumerate}[(i)]
+\item  for all $b\in\catb$ the fiber $\varphi^{-1}(b)$ is a groupoid (ie. all morphisms are isomorphisms)
+\item  for every $b\in \catb$, there exists a covering $\mathfrak U = \{b_i\rightarrow b\}$ such that each $\varphi^{-1}(b_i)$ is nonempty
+\item  for any $b\in\catb$, and $a,a'\in \varphi^{-1}(b)$, there exists a covering $\mathfrak U=\{f_i: b_i\rightarrow b\}$ of $b$ such that $f_i^*a$ and $f_i^*a'$ are isomorphic for all $i$
+\end{enumerate}
+\end{defn}
+
 \subsection{Azumaya Algebras and the Brauer Group}
 \begin{defn}
 Let $X$ be a scheme.  We define an \vocab{Azumaya algebra} $A$ on $X$ to be a twisted form of the $\sheaf O_X$-algebra $M_n$ for some $n$.  The corresponding value of $n$ is called the \vocab{rank}.  We denote the set of isomorphism classes of Azumaya algebras of rank $n$ on $X$ as $\Az_n(X)$.  We call an Azumaya algebra $A$ \vocab{trivial} if $A \cong \END_{\sheaf O_X}(V)$ for some locally free $\sheaf O_X$-module $V$.  We define two Azumaya algebras $A$ and $A'$ to be \vocab{equivalent} if $A\otimes_{\sheaf O_X}(A')^{op}$ is a trivial Azumaya algebra.
@@ -80,7 +119,6 @@ If $X = \spec(k)$ for $k$ a field, then an Azumaya algebra on $X$ is the same th
 \begin{remk}
 With the definition of equivalence provided above, two Azumaya algebras $A$ and $A'$ are equivalent if and only if the corresponding module categories are the equivalent.  In fact, there corresponding equivalence of categories is the one induced by the $A,A'$-bimodule $A\otimes(A')^{op}$.  Thus the definition of equivalence coincides with the notion of Morita equivalence.
 \end{remk}
-%\marginpar{Should work through this at least once...}
 
 \begin{defn}
 We define the (geometric) \vocab{Brauer group} of $X$ to be the set $\Br(X)$ of equivalence classes of Azumaya algebras on $X$.
@@ -145,7 +183,7 @@ $$\xymatrix{
 }$$
 where the rows and columns are all short exact sequences (in fppf topology).
 \begin{prop}
-The map $\delta: \wc H^1(X,\bbpgl_n)\rightarrow H^2(X,\bbg_m)$ factors through the map $H^2(X,\mu_n)\rightarrow H^2(X,\bbg_m)$ induced by the Kummer sequence.  In particular, the image of $\wc H^1(X,\bbpgl_n)$ is torsion in $H^2(X,\bbg_m)$.
+The map $\delta: H^1(X,\bbpgl_n)\rightarrow H^2(X,\bbg_m)$ factors through the map $H^2(X,\mu_n)\rightarrow H^2(X,\bbg_m)$ induced by the Kummer sequence.  In particular, the image of $H^1(X,\bbpgl_n)$ is torsion in $H^2(X,\bbg_m)$.
 \end{prop}
 \begin{cor}
 The geometric Brauer group embeds into the cohomological Brauer group.
