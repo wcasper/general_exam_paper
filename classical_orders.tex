@@ -35,9 +35,9 @@ If in addition $R$ is integrally closed in its fraction field, then (a) or (b) i
 \begin{proof}
 The fact that (a) implies (b) follows immediately from the previous lemma.  Conversely, assume (b) and suppose that $B$ is any $R$-order containing $A$.  Then $A_\p\subseteq B_\p$ for all prime ideals $\p$, and therefore by maximality, $A_\p = B_\p$ for all prime ideals $\p$.  It follows that $A = B$, and hence $A$ is maximal.
 
-Next suppose that $R$ is also integrally closed.  Note that $A^**$ is an $R$-order containing $A$, and therefore if $A$ is maximal $A$ is reflexive.  Thus it follows from the previous lemma that (a) implies (b).  Conversely, assume (c).  Suppose that $B$ is any $R$-order containing $A$.  Then by maximality at height one primes, we have that $A_\p = B_\p$ for all $\p$ with $\height\p = 1$.  Then since $R$ is integrally closed,
+Next suppose that $R$ is also integrally closed.  Note that $A^{**}$ is an $R$-order containing $A$, and therefore if $A$ is maximal $A$ is reflexive.  Hence by the previous lemma (a) implies (c).  Conversely, assume (c).  Suppose that $B$ is any $R$-order containing $A$.  Then by maximality at height one primes, we have that $A_\p = B_\p$ for all $\p$ with $\height\p = 1$.  Then since $R$ is integrally closed,
 $$A^{**} = \bigcap_{\height\p = 1} A_\p = \bigcap_{\height\p = 1} B_\p = B^{**}.$$
-Since $A$ is reflexive, this shows that $A = B^{**}$.  However, $B^{**}$ is an $R$-order containing $B$, and therefore $A$ contains $B$.  Hence $A = B$.
+Since $A$ is reflexive, this shows that $A = B^{**}$.  However, $B^{**}$ is an $R$-order containing $B$, and therefore $A$ contains $B$.  Hence $A = B$, and therefore $A$ is maximal.  Thus (c) implies (a).
 \end{proof}
 
 \begin{defn}
@@ -48,7 +48,7 @@ Let $A$ be an $R$-order in $\Delta$.  We define the \vocab{reduced norm} $\nrd(a
 Suppose that $R$ is integrally closed and $A$ is an $R$-order in $\Delta$.  Then for all $a\in A$, the reduced characterisic polynomial $\chrd(x;a)$ is in $R[x]$.  Consequently, the reduced norm and reduced trace are also both in $R$.
 \end{lem}
 \begin{proof}
-Let $a\in \Delta$.  Then since $A$ is finitely generated over $R$, $a$ is integral over $R$.  Let $f(x)\in K[x]$ be the minimal polynomial of $a$; since $R$ is integrally closed, $f(x)\in R[x]$.  Note that $f(x)$ and $\chrd(x;a)$ have the same roots over the algebraic closure $\ol K$ of $K$ (not counting algebric multiplicity), since they are exactly the eigenvalues of the left action of $a\otimes 1$ on $\Delta\otimes_K\ol K$.  This means that the roots of $\chrd(x;a)$ are all algebraic over $R$.  Hence the coefficients of $\chrd(x;a)$ are algebraic over $R$.  Since $\chrd(x;a)\in K[x]$ and $R$ is algebraically closed in $K$, this implies that $\chrd(x;a)\in R[x]$.
+Let $a\in A$.  Then since $A$ is finitely generated over $R$, $a$ is integral over $R$.  Let $f(x)\in K[x]$ be the minimal polynomial of $a$; since $R$ is integrally closed, $f(x)\in R[x]$.  Note that $f(x)$ and $\chrd(x;a)$ have the same roots over the algebraic closure $\ol K$ of $K$ (not counting algebric multiplicity), since they are exactly the eigenvalues of the left action of $a\otimes 1$ on $\Delta\otimes_K\ol K$.  This means that the roots of $\chrd(x;a)$ are all algebraic over $R$.  Hence the coefficients of $\chrd(x;a)$ are algebraic over $R$.  Since $\chrd(x;a)\in K[x]$ and $R$ is algebraically closed in $K$, this implies that $\chrd(x;a)\in R[x]$.
 \end{proof}
 
 \begin{prop}
@@ -94,7 +94,11 @@ Note that $A$ and $B$ are isomorphic under an inner automorphism of $\Delta$, an
 Note that in the previous example, both of the maximal $R$-orders in $\Delta$ are Azumaya algebras -- and in fact all of the maximal $R$-orders in $\Delta$ are Azumaya.  This is indicative of the following more general phenomenon, which we discuss in greater detail in the section below on ramification.
 
 \subsection{Maximal Orders over a complete DVR}
-Let $R$ be a complete DVR with uniformizer $\pi$, residue field $k$, and fraction field $K$.  Let $\Delta$ be a central simple $K$-algebra; by Wedderburn's Theorem, we may take $\Delta = M_N(D)$, for $D$ a division algebra with center $K$.  In this section, we will show that the maximal $R$-order in $\Delta$ is essentially unique.  More specifically, we will show that there exists a unique maximal $R$-order $A$ in $D$, and that any maximal $R$-order in $\Delta$ is isomorphic to $M_N(A)$ via an inner automorphism of $\Delta$.  The exposition we provide is based on the exposition found in Reiner (citation), which in turn is based on the exposition of Hasse (citation).
+Let $R$ be a complete DVR with valuation $\nu$, uniformizer $\pi$, residue field $k$, and fraction field $K$.  Let $\Delta$ be a central simple $K$-algebra; by Wedderburn's Theorem, we may take $\Delta = M_N(D)$, for $D$ a division algebra with center $K$, with $\dim_K(D) = m$.  In this section, we will show that the maximal $R$-order in $\Delta$ is essentially unique.  More specifically, we will show that there exists a unique maximal $R$-order $A$ in $D$, and that any maximal $R$-order in $\Delta$ is isomorphic to $M_N(A)$ via an inner automorphism of $\Delta$.  The exposition we provide is based on that found in Reiner \cite{reiner1975maximal}, which in turn is based an earlier paper of Hasse.
+
+The main ideal is that the function $w: D\rightarrow K$ defined by
+$$w(x) = \frac{1}{m}\nu(\det(x)),\ \ \forall x\in D$$
+extends the valuation $\nu$ to a valuation on all of $D$.  Our next goal is to prove this, and it will take a bit of doing.
 
 \begin{lem}
 Suppose $f\in K[x]$ is an irreducible polynomial with
@@ -147,7 +151,7 @@ Note that (a), (b) follow immediately from the definition and the fact that $D$ 
 Suppose that $w(a)\geq 0$, and let $f(x)$ be the minimal polynomial of $a$.  Then by the previous lemma $f(x)\in R[x]$, and since $f(x-1)$ is the minimal polynomial of $a+1$, it follows that $a+1$ is integral over $R$.  Hence by the previous lemma, $\nu(a +1)\geq 0$.  Thus
 $$\nu(a+1) \geq 0 = \min\{\nu(a),\nu(1)\}.$$
 Now take $b,c\in K$ and without loss of generality assume $\nu(b)\leq \nu(c)$.  Then
-$$\nu(c/b + 1)\geq \min\{\nu(c/b),\nu(1)\}$$
+$$\nu(cb^{-1} + 1)\geq \min\{\nu(c/b),\nu(1)\}$$
 and by adding $\nu(b)$ to both sides, we obtain (d).
 \end{proof}
 
@@ -233,7 +237,7 @@ The matrix algebra $M_N(A)$ is a maximal $R$-order in $\Delta$.  Furthermore
 \end{enumerate}
 \end{thm}
 
-\subsection{Maximal orders in DVRs}
+\subsection{Maximal orders over DVRs}
 In this section, let $R$ be an arbitrary DVR with uniformizer $\pi$ and fraction field $K$.  In the last section, we determined a great many structural theorems regarding maximal orders over complete DVRs.  In this section, we will show how the theory of maximal orders over $R$ may be related to the theory of maximal orders over their completion $\wh R$.  For notational convenience, in this section $\Delta$ will be a CSA/$K$, $\wh K$ will be the fraction field of $\wh R$, and $\wh\Delta$ will be $\Delta\otimes_K \wh K$.  In particular, $\wh \Delta$ is a CSA/$\wh K$, and $\Delta$ is a division algebra if and only if $\wh \Delta$ is a division algebra.
 
 The basic idea of relating the theory of maximal orders on $R$ to the theory of maximal orders on $\wh R$ is based on fpqc descent.  In particular, take $X = \spec(R)$, $U_1 = \spec(\wh R)$ and $U_2 = \spec(K)$.  Then the two natural maps $f_i: U_i\rightarrow X$ form an fppf covering of $X$.  Descent data on this cover consists of a sheaves $F_i$ on $U_i$ with isomorphisms $\varphi_{ij}: p_{ij1}^*F_i\rightarrow p_{ij2}^*F_j$ for all $1\leq i\leq j\leq 2$, where $p_{ijk}:U_i\times_X U_j\rightarrow U_k$ is the natural projection.  In our case, we have canonical identifications $U_1\times_X U_1 = U_1$, $U_2\times_X U_2 = U_2$ and $U_1\times_X U_2 = \spec(\wh K)$ with $p_{iij} = \id_{U_i}$ and $p_{12j}:\spec(\wh K)\rightarrow U_j$ the natural map.  Therefore the only nontrivial descent data comes from the isomorphisms $\varphi_{ij}$ for $i\neq j$.  Unwinding definitions, descent theory then tells us that
@@ -347,7 +351,7 @@ $$t = \left(\begin{array}{cccccc}
 Let $R$ be a complete DVR, and let $B$ be the unique maximal $R$-order in $D$.  Then an $R$-order in $\Delta = M_N(D)$ is normal if and only if it is isomorphic to $A_{e,f}(B)$ for some integers $e,f$.
 \end{thm}
 
-\subsection{Ramification of Maximal Orders in DVRs}
+\subsection{Ramification of Maximal Orders over DVRs}
 In this section $R$ will always be a DVR with fraction field $K$, uniformizer $\pi$ and residue field $k$, and $\Delta$ will represent a central simple $K$-algebra of rank $n$.
 \begin{defn}
 Let $A$ be a maximal $R$-order in $\Delta$.  The central simple algebra $\Delta$ is said to \vocab{ramify} over $R$ if $A$ is not an Azumaya algebra on $R$.  We define the \vocab{algebraic ramification index} $e = e(\Delta/R)$ to be the unique integer satisfying $J(A)^e = \pi J(A)$, and the \vocab{cohomological ramification index} $e' = e'(\Delta/R)$ to be $e' = \dim_k(Z(A/J(A)))$.  We define the \vocab{inertia degree} $f = f(\Delta/R$) to be the dimension of $A/J(A)$ over its center.
