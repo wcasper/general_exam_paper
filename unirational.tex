@@ -1,5 +1,5 @@
 \section{A Nonrational Unirational Variety}
-In this section, we construct a surface $S$ with quotient field $K = k(x,y)$ and quaternion algebra $\Delta$ over $K$ whose ramification locus is a union of two nonsingular, disjoint curves $C_1,C_2$ on $S$ such that the Brauer-Severi scheme of a maximal order $\sheaf A$ of $\Delta$ over $S$ is unirational.  By Proposition FIXME, this tells us that $\BS(\sheaf A)$ is a nonrational unirational variety.
+In this section, we construct a surface $S$ with quotient field $K = k(x,y)$ and quaternion algebra $\Delta$ over $K$ whose ramification locus is a union of two nonsingular, disjoint curves $C_1,C_2$ on $S$ such that the Brauer-Severi scheme of a maximal order $\sheaf A$ of $\Delta$ over $S$ is unirational.  It will then follow from cohomological considerations that $\BS(\sheaf A)$ is a nonrational unirational variety.
 
 Fix a nonsingular conic in $Z = V(\alpha)\subseteq \bbp^2_k$, and choose six distinct points $P_i^{(j)}\in Z$, $i=1,2$, $j=1,2,3$.
 \begin{lem}
@@ -10,31 +10,7 @@ There exist nonsingular cubic curves $E_i = V(\beta_i) \subseteq \bbp^2_k$ such 
 \end{enumerate}
 \end{lem}
 \begin{proof}
-Fix an isomorphism $Z\cong\bbp^1_k$.  Then the corresponding closed immersion $\bbp_1\cong Z\rightarrow\bbp_2$ corresponds to a degree $2$ homogeneous polynomial $f\in\Gamma(\bbp_2,\sheaf O(2)) = S(2)$ for $S = k[X,Y,Z]$.  Then the short exact sequence of graded $S$-modules
-$$0\rightarrow S(-2)\xrightarrow{f} S\rightarrow S/(f)\rightarrow 0$$
-induces a short exact sequence of sheaves
-$$0\rightarrow \sheaf O(-2)\rightarrow \sheaf O\rightarrow f_*\sheaf O\rightarrow 0.$$
-Tensoring with $\sheaf O(3)$, we obtain a short exact sequence
-$$0\rightarrow \sheaf O(1)\rightarrow \sheaf O(3)\rightarrow f_*\sheaf O(6)\rightarrow 0.$$
-Since $H^1(\bbp^2,\sheaf O(1)) = 0$, this gives us a short exact sequence on global sections
-$$0\rightarrow \Gamma(\bbp^2,\sheaf O(1))\rightarrow \Gamma(\bbp^2,\sheaf O(3))\rightarrow \Gamma(\bbp^1,\sheaf O(6))\rightarrow 0.$$
-Let $g_i\in\Gamma(\bbp^1,\sheaf O(6))$ with $(g_i) = 2\sum_j P^{(j)}_i$.  Then the above sequence shows that the subspace $L_i$ of $\Gamma(\bbp^2,\sheaf O(3))$ of functions whose restriction to $Z$ is $g_i$ is a three-dimension $k$-vector space.  Sweet!  Fix a member $\ell_i\in L_i$ with $\ell_i\mapsto g_i$ for $i=1,2$.
-
-Let $E_i = \{(\ell,x)\in L_i\times\bbp^2: \ell(x) = 0\}$ and $B_i = \{(\ell,x)\in E_i: \nabla \ell(x) = 0\}$, and consider the map
-$$B_i\rightarrow E_i\rightarrow L_i\times\bbp^2\rightarrow L_i.$$
-We claim that $B_i$ does not map onto $L_i$.  To see this, we can consider the other map
-$$B_i\rightarrow E_i\rightarrow L_i\times\bbp^2\rightarrow \bbp^2.$$
-Let $y\in \bbp^2\diff Z$, and suppose $(\ell,y)\in B_i$.  Then $\ell = \ell_i + \alpha p$ for some degree $1$ homogeneous polynomial $p$, and
-we have the two equations
-\begin{align*}
-0 = \ell(y)       & = \ell_i(y) + \alpha(y)p(y)\\
-0 = \nabla\ell(y) & = \nabla\ell_i(y) + p(y)\nabla\alpha(y)  + \alpha(y)\nabla p(y).
-\end{align*}
-In particular, these together along with the fact that $y\cdot\nabla p(y) = p(y)$ tell us
-$$0 = \alpha(y)y\cdot\nabla\ell(y) = \alpha(y)y\cdot\nabla\ell_i(y) -\ell_i(y)y\cdot\nabla\alpha(y) + \alpha(y)\ell_i(y).$$
-Thus $y$ sits inside a codimension $1$ subspace of $\bbp^2$.  Moreover, the value of $p(y)$ is uniquely determined by the requirement that
-$$0 = \alpha(y)\nabla\ell_i(y) - \ell_i(y)\nabla(y) + \alpha(y)^2\nabla p(y).$$
-Therefore the projection $(B_i\diff \{L_i\times\{P_i^{(j)}\})\rightarrow \bbp^2\diff Z$ maps injectively onto a codimension $1$ subspace of $\bbp^2$.  Thus it does not map surjectively onto $L_i$.  Hence we may take the $\ell_i$ to be nonsingular.  By wiggling this argument, we can take $\ell_1$ and $\ell_2$ such that both intersect transversally.
+See \cite{artin1972some}.
 \end{proof}
 
 Let $q$ be the rational function on $\bbp^2_k$ whose divisor is $Z-2L$, with $L$ the line at infinity.
@@ -56,7 +32,7 @@ Let $L_i:=K(E_i)[\ol q^{1/2}]$ and let $E_i'$ be the normalization of $E_i$ in $
 Since $E_i'\rightarrow E_i$ is locally of finite type, it suffices to show that for any point $P'\in E_i'$ with image $P\in E_i$, the induced map of residue fields $\kappa(P)\rightarrow\kappa(P')$ is a finite, separable field extension.  Then the local ring $R = \sheaf O_{E_i,P}$ is a DVR $(R,\nu)$ with residue field $k$ and fraction field $K(L_i)$.  Let $t$ be a uniformizer for $R$.  Depending on whether or not $P$ is one of the intersection points $P_i^{(j)}$ of $E_i$ and $Z$, the value of $\nu(\ol q)$ is either $0$ or $2$, meaning we may write $\ol q = ut^{2j}$ for some $u\in R^*$ and integer $j$.  Note that $R[u^{1/2}]$ is a semilocal Dedekind domain, hence a PID, and therefore integrally closed in its fraction field $L_i$.  Therefore since $u^{1/2}\in L_i$ is integral over $R$, we have $\sheaf O_{E_i',P'} = R[u^{1/2}]$.  Furthermore $R[u^{1/2}] = R[x]/(x^2-u)$ is unramified since $u$ is a unit.
 \end{proof}
 
-Define $S$ to be the blow up of $\bbp_k^2$ at the intersection points of $O_1,\dots,O_9$ of $E_1$ and $E_2$, and let $C_i$ be the proper transform of $E_i$ for $i=1,2$.  Then $S$ is a simply connected rational surface, on which the nonsingular curves $C_1$ and $C_2$ are disjoint.  Note that since $S$ is rational, $\Br(S) = 0$ by Proposition FIXME.  Therefore the Artin-Mumford sequence tells us there exists a unique $\Delta\in\Br_2(K)$ whose ramification locus is $C = C_1\cup C_2$ and whose ramification data on $C_i$ is the nowhere-ramified extension $L_i$ for $i=1,2$.
+Define $S$ to be the blow up of $\bbp_k^2$ at the intersection points of $O_1,\dots,O_9$ of $E_1$ and $E_2$, and let $C_i$ be the proper transform of $E_i$ for $i=1,2$.  Then $S$ is a simply connected rational surface, on which the nonsingular curves $C_1$ and $C_2$ are disjoint.  Note that since $S$ is rational, $\Br(S) = 0$.  Therefore the Artin-Mumford sequence tells us there exists a unique $\Delta\in\Br_2(K)$ whose ramification locus is $C = C_1\cup C_2$ and whose ramification data on $C_i$ is the nowhere-ramified extension $L_i$ for $i=1,2$.
 
 Choose a cubic curve $E_0 = V(\beta)\subseteq \bbp^2_k$ such that the divisor $E_0$ pulls back on $Z$ to the divisor $\sum_{ij}P_i^{(j)}$.  In particular, this means that $\beta_1\beta_2-\beta$ is identically zero on $\alpha$, so that there exists a homogeneous polynomial $\gamma$ of degree $4$ satisfying $4\alpha\gamma = (\beta_1\beta_2-\beta)$.  Consider the field $L := K[q^{1/2}]$, and let $Y_0$ be the quartic in $\bbp^3_k$ defined by
 $$Y_0 = V(\alpha(X_0,X_1,X_2)X_3^2 + \beta(X_0,X_1,X_2)X_3 + \gamma(X_0,X_1,X_2))\subseteq \bbp^3_k.$$

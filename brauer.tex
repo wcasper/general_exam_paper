@@ -1,7 +1,7 @@
 
 \section{Brauer Group of a Nonsingular Surface}
 \subsection{Some Etale Cohomology}
-In this section, we turn our attention to the Brauer group of a nonsingular integral scheme $X$, focusing primarily on the case of a nonsingular surface.  In the nonsingular case, the cohomological Brauer group of $X$ injects into the Brauer group of its function field $K$.  Furthermore, coprime to the characteristic of $K$, the cokernel of this may be described by certain ramification data on the divisors of $X$.  Specifically, we have the following main theorem
+In this section, we turn our attention to the Brauer group of a nonsingular integral scheme $X$, focusing primarily on the case of a nonsingular surface.  Our exposition is based on a combination of \cite{artin1972some} and \cite{Artin&deJong} In the nonsingular case, the cohomological Brauer group of $X$ injects into the Brauer group of its function field $K$.  Furthermore, coprime to the characteristic of $K$, the cokernel of this may be described by certain ramification data on the divisors of $X$.  Specifically, we have the following main theorem
 \begin{thm}
 Let $X$ be a nonsingular, excellent, integral scheme.  If $\ell$ is coprime to the characteristic of $K$, then we have an $\ell$-exact sequence
 $$0\rightarrow \Br'(X)\rightarrow\Br(K)\xrightarrow{\rho} \bigoplus_{x\in X^1} H^1(X,i_*(\bbq/\bbz))\rightarrow H^3(X^1,\bbg_m)\rightarrow H^3(X,\bbg_m).$$
@@ -25,7 +25,7 @@ As a consequence of the previous lemma, we have a long exact sequence in cohomol
 \begin{equation}\label{les form1}
 \bigoplus_{x\in X^1}H^1(X, i_{x*}\bbz) \rightarrow H^2(X,\bbg_m)\rightarrow H^2(X,i_{\eta*}\bbg_m)\rightarrow \bigoplus_{x\in X^1}H^2(X, i_{x^*}\bbz)\rightarrow \dots
 \end{equation}
-The majority of the rest of this section is devoted to showing that this exact sequence may be wrangled to give us the long exact sequence in the statement of Theorem FIXME.
+The majority of the rest of this section is devoted to showing that this exact sequence may be wrangled to give us the long exact sequence in the statement of the main theorem.
 \begin{lem}
 Let $Y$ be an integral scheme with generic point $\eta$, and let $f: \eta\rightarrow\bbz$ be the inclusion.  Then
 \begin{enumerate}[(a)]
@@ -63,7 +63,7 @@ To finish the proof of the main theorem, it would be nice to obtain an $\ell$-ex
 Let $X$ be a nonsingular, excellent, integral scheme with fraction field $K$.  Then $H^2(X,\bbg_m)\cong H^2(X^1,\bbg_m)$.
 \end{lem}
 \begin{proof}
-This is a little weird...
+\cite{Artin&deJong}
 \end{proof}
 Therefore, by replacing $X$ with $U$ in our long exact sequence, and taking the limit over all complements of closed subschemes of $X$ with codimension at least two, we obtain a long exact sequence
 \begin{equation}\label{les form3}
@@ -117,7 +117,7 @@ Let $f: X^1\rightarrow X$.  Then there is an exact sequence
 $$0\rightarrow H^3(X,\bbg_m)\rightarrow H^3(X^1,\bbg_m)\rightarrow \bigoplus_{x\in X_0} (j_x)_*\mu^{-1}\rightarrow H^4(X,\bbg_m)\rightarrow 0.$$
 \end{lem}
 \begin{proof}
-Since $R^0f_*\bbg_m = \bbg_m$, $R^3f_*\bbg_m = \bigoplus_{x\in X_0} (j_x)_*\mu^{-1}$ and $R^qf_*\bbg_m = 0$ otherwise, this just falls out of the Leray spectral sequence for $f$.  There is a minor point about $H^4(X^1,\bbg_m)=0$ FIXME.
+Since $R^0f_*\bbg_m = \bbg_m$, $R^3f_*\bbg_m = \bigoplus_{x\in X_0} (j_x)_*\mu^{-1}$ and $R^qf_*\bbg_m = 0$ otherwise, this just falls out of the Leray spectral sequence for $f$.  In the above, we used the fact that $H^4(X^1,\bbg_m)=0$, which follows from Poincare duality.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{Artin-Mumford exact sequence}]
