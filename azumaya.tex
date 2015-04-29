@@ -87,9 +87,25 @@ Let $\varphi: \catc\rightarrow\catb$ be a functor between categories $\catc$ and
 In this case the object $c'$ is unique up to canonical isomorphism and is called the \vocab{pullback of $c$}, denoted $g^*c$.
 \end{defn}
 
+\begin{ex}
+The identity functor $\id_{\catb}:\catb\rightarrow\catb$ defines $\catb$ as a fibered category over iteself.
+\end{ex}
+
+\begin{ex}{Grothendieck Construction}
+Let $F: \catb\rightarrow \Cat$ be a pseudofunctor between a category $\catb$ and a $2$-category $\Cat$.  A construction attributed to Grothendieck allows us to use $F$ to build a fibered category $(\int F,\catc, \varphi)$.
+
+Define a category $\int F$ whose objects are pairs $(b,c)$ with $b\in\catb$ and $c\in F(b)$, where
+$$\Hom_{\int F}((b,c),(b',c')) = \{(g,\alpha) : b\xrightarrow{g}b',\ F(g)(c)\xrightarrow{\alpha}c'\}.$$
+This category has a natural functor $\varphi: \int F\rightarrow \catb$ defined by $(b,c)\mapsto b$ and $(g,\alpha)\mapsto g$, and one may verify that $(\int F,\catc,\varphi)$ is a fibered category.
+\end{ex}
+
+\begin{defn}
+Let $\catc\rightarrow\catb$ and $\catc'\rightarrow\catb$ be fibered categories, and let $F:\catc'\rightarrow\catc$ be a $1$-morphism of fibered categories over $\catb$.  Then we define the \vocab{inertia category of $\catc'$ over $\catc$} $\inertia_{\catc'/\catc}$ to be the category whose objects are pairs $(c',f)$ with $c\in \catc'$ and $f:c'\rightarrow c'$ an automorphism satisfying $F(f) = \id_{F(c')}$, and whose morphisms $(c_0',f_0)\rightarrow (c_1',f_1)$ are morphisms $h: c_0'\rightarrow c_1'$ such that $hf_0 = f_1h$.  We define the \vocab{inertia category of $\catc$} to be $\inertia_{\catc/\catb}$, and denote it by $\inertia_{\catc}$
+\end{defn}
+
 Now consider the case when the base category $\catb$ is a site.
 \begin{defn}
-Let $(\catc,\catb,\varphi)$ be a fibered category, with $\catb$ a site.  Then $\varphi$ is a \vocab{prestack} if for any $b\in\catb$, and $a,a'\in\varphi^{-1}(b)$ the functor $F:\catc/b\rightarrow\Sets$ defined by
+Let $(\catc,\catb,\varphi)$ be a fibered category, with $\catb$ a site.  We call this fibered category a \vocab{prestack} if for any $b\in\catb$, and $a,a'\in\varphi^{-1}(b)$ the functor $F:\catc/b\rightarrow\Sets$ defined by
 $$(f:b'\rightarrow b)\mapsto \Hom(f^*a',f^*a)$$
 is a sheaf.
 \end{defn}
@@ -98,14 +114,64 @@ is a sheaf.
 Let $(\catc,\catb,\varphi)$ be a fibered category, with $\catb$ a site.  Let $\mathfrak U = \{g_i: b_i\rightarrow b\}$ be a covering of an object $b\in\catb$.  Then there is a natural map from $\varphi^{-1}(b)$ to descent data on $\mathfrak U$.  If all descent data on $\mathfrak U$ arises in this way, then we say \vocab{descent is effective on $\mathfrak U$}.  If descent is effective for every choice of $\mathfrak U$ and $b$, we say descent is effective on $\varphi$.  A prestack on which descent is effective is called a \vocab{stack}.
 \end{defn}
 
+We will mostly be interested in the case that the base category $\catb$ is a site on the category of schemes over $X$, ie. $\catb = X_{\text{site}}$.  For simplicity, we will refer to a stack $(\catc,X_{\text{site}},\varphi)$ as a stack on $X$, and denote it by $\varphi: \catc\rightarrow X_{\text{site}}$ or just by $\varphi:\catc\rightarrow X$, if the site structure on $X$ is clear from context.
+
+\begin{ex}
+Let $F$ be a sheaf on $X$, ie. a functor $F:\Sch_X^{\text{op}}\rightarrow\Sets$.  Then the Grothendieck construction gives a stack $\int F\rightarrow X$ on $X$.
+\end{ex}
+
 \begin{defn}
-Let $(\catc,\catb,\varphi)$ be a stack.  Then $\varphi$ is called a \vocab{gerbe} if it satisfies the following additional properties
+Let $\varphi: \catc\rightarrow X$ be a stack on $X$.  The stack is called a \vocab{gerbe} if it satisfies the following additional properties
 \begin{enumerate}[(i)]
 \item  for all $b\in\catb$ the fiber $\varphi^{-1}(b)$ is a groupoid (ie. all morphisms are isomorphisms)
 \item  for every $b\in \catb$, there exists a covering $\mathfrak U = \{b_i\rightarrow b\}$ such that each $\varphi^{-1}(b_i)$ is nonempty
 \item  for any $b\in\catb$, and $a,a'\in \varphi^{-1}(b)$, there exists a covering $\mathfrak U=\{f_i: b_i\rightarrow b\}$ of $b$ such that $f_i^*a$ and $f_i^*a'$ are isomorphic for all $i$
 \end{enumerate}
 \end{defn}
+
+\begin{defn}
+Let $G$ be a group scheme on $X$, and let $\catc\rightarrow X$ be a gerbe on $X$.  Consider the natural projection $p: \inertia_{\catc}\rightarrow X$.  We call $\catc$ a \vocab{$G$-gerbe on $X$} if $p^{-1}$ is naturally isomorphic to $G$ as sheaf of groups on $X$.
+\end{defn}
+
+\begin{ex}
+Let $G$ be a group scheme on $X$.  We define the \vocab{trivial $G$-gerbe on $X$} to be $\pi: BG\rightarrow X$, where $BG$ is the category whose objects are pairs $(Y,V)$ with $Y\xrightarrow{f}X$ a scheme over $X$ and $V$ a (left) $G$-torsor on $Y$, and with morphisms $(Y',V')\rightarrow (Y,V)$ given by pairs $(g,\alpha)$ with $g: Y'\rightarrow Y$ a morphism of schemes over $X$ and $\alpha: g_*V'\rightarrow V$ an isomorphism.
+\end{ex}
+
+\begin{ex}
+Let $G$ be a group scheme on $X$, and let $V$ be a (left) $G$-torsor sheaf.  We associate to $V$ a gerbe $\catx_V$ as follows.  The objects of $\catx_V$ are triples $(Y,W,\alpha)$, where $f:Y\rightarrow X$ is a scheme over $X$, $W$ a (left) $G$-torsor on $Y$, and $\alpha$ an isomorphism of $G$-torsors $\alpha: f_*W\cong V$.
+\end{ex}
+
+For reasons that will become apparent momentarily, we denote the set of isomorphism classes of $G$-gerbes on $X$ by $H^2_g(X,G)$.  Note that if $G$ is abelian, then $H^2_g(X,G)$ has a natural group structure
+$$H_g^2(X,G)\times H_g^2(X,G)\rightarrow H_g^2(X,G\times G)\rightarrow H_g^2(X,G),$$
+induced by the product map on $G$ and the projections $G\rightrightarrows G\times G\rightarrow G$.
+\begin{prop}
+Suppose that $G$ is an abelian group scheme.  Then there is a canonical isomorphism
+$$H^2_g(X,G)\rightarrow H^2(X_{et},G).$$
+\end{prop}
+\begin{proof}
+Suppose that $G'$ a group scheme on $X$, which is injective as a $\bbz$-module.  Let $\catx$ be a $G'$-gerbe, and choose a covering $\mathfrak U=\{f_i: U_i\rightarrow X\}$ on which the gerbe $\catx$ restricts to the trivial gerbe $BG'$.  Then let $f: \amalg_i U_i\rightarrow X$ be the induced covering map.  Then since $G'$ is injective, the natural map $G'\rightarrow f_*f^*G'$ splits.  It follows that $H^2_g(X,G')\rightarrow H^2_g(X,f_*f^*G')$ splits also, and therefore since since the image of $\catx$ is $0$ in $H^2_g(X,f_*f^*G')$, we must have $\catx = 0$.
+
+Now let $G$ be an arbitrary abelian group scheme $G$, and embed $G$ into an injective $G'$, with cokernel $G''$.  Then we have a short exact sequence of abelian group schemes
+$$1\rightarrow G\rightarrow G'\rightarrow G''\rightarrow 1,$$
+which induces a long exact sequence
+$$\dots H^1(X,G')\rightarrow H^1(X,G'')\rightarrow H^2_g(X,G)\rightarrow H^2_g(X,G')\rightarrow H^2(X,G,'').$$
+See Milne \cite{milne1980etale} for details.  Then since $H^2_g(X,G') = 0$, this shows that $H^2_g(X,G)$ is the cokernel of $H^1(X,G')\rightarrow H^1(X,G'')$, which is $H^2(X,G)$.  This completes the proof.
+\end{proof}
+
+Thus one interpretation of the second cohomology group $H^2(X,G)$ is as isomorphism classes of $G$-gerbes.  Giraud proves that short exact sequences still induce long exact sequences as desired.
+\begin{lem}[Giraud]\label{giraurds lemma}
+Let $X$ be a scheme and let
+$$1\rightarrow G'\rightarrow G\rightarrow G''\rightarrow 1,$$
+be a short exact sequence of group schemes on $X$, with $G'\subseteq Z(G)$.  Then there exists a long exact sequence of pointed sets
+\begin{align*}
+1 & \rightarrow H^0(X,G') \rightarrow H^0(X,G)\rightarrow H^0(X,G'')\\
+  & \rightarrow H^1(X,G') \rightarrow H^1(X,G)\rightarrow H^1(X,G'')\xrightarrow{\delta} H^2(X,G')
+\end{align*}
+where the map $\delta$ in the above sends (the iso. class of) a $G''$-torsor sheaf $V$ on $X$ to the (iso. class of the) associated gerbe $\catx_V$.
+\end{lem}
+\begin{proof}
+See \cite{giraud1971cohomologie}.
+\end{proof}
 
 \subsection{Azumaya Algebras and the Brauer Group}
 \begin{defn}
@@ -145,33 +211,14 @@ Let $X$ be a scheme.  We define the \vocab{cohomological Brauer group} $\Br'(X)$
 Note that the fppf and etale cohomology of $\bbg_m$ agree.  Hence we simply write $H^i(X,\bbg_m)$ to represent either cohomology group.
 \end{remk}
 
-One way to think about the canonical map $\Br(X)\rightarrow\Br'(X)$ is through the short exact sequence of group schemes
-$$0\rightarrow \bbg_m\rightarrow\bbgl_n\rightarrow\bbpgl_n\rightarrow 0.$$
-As we mentioned in the last section, for any group scheme $G$ on $X$, we can think about the cohomology class $H^1(X,G)$ as isomorphism classes of $G$-torsor sheaves on $X$.  As it turns out, we also have an interpretation of $H^2(X,G)$ as isomorphism classes of $G$-gerbes on $X$.
-\begin{lem}[Giraud]\label{giraurds lemma}
-Let $X$ be a scheme and let
-$$1\rightarrow G'\rightarrow G\rightarrow G''\rightarrow 1,$$
-be a short exact sequence of group schemes on $X$, with $G'\subseteq Z(G)$.  Then there exists a long exact sequence of pointed sets
-\begin{align*}
-1 & \rightarrow H^0(X,G') \rightarrow H^0(X,G)\rightarrow H^0(X,G'')\\
-  & \rightarrow H^1(X,G') \rightarrow H^1(X,G)\rightarrow H^1(X,G'')\xrightarrow{\delta} H^2(X,G')
-\end{align*}
+Given an Azumaya algebra $A$ on $X$, we define a $\bbg_m$-gerbe $\catx_A$ by taking the category fibered over $X$ associated to the pseudo-functor
+$$(Y\rightarrow X)\mapsto \{(E,\alpha):\text{$E$ loc. free, coh. $\sheaf O_Y$-module, $\alpha: \End_{\sheaf O_Y}(E)\cong A_Y$}\}$$
+\begin{lem}
+The fibered category $\catx_A$ is a $\bbg$-gerbe, which is trivial if and only if $A$ is a trivial Azumaya algebra.  The map $A\mapsto \catx_A$ defines a group monomorphism of $\Br(X)$ into $H^2_g(X,\bbg)\cong H^2(X,\bbg)$
 \end{lem}
 \begin{proof}
-See \cite{giraud1971cohomologie}.
+See Milne \cite{milne1980etale}.
 \end{proof}
-All of the maps, save for $\delta$, may be thought of in terms of \v{C}ech cohomology, and agree with the usual manipulation involving cocycles and restriction.  The map $\delta$ is perhaps a bit mysterious, so we take a little more time to explain it.
-
-Associated to any $G''$-torsor sheaf $F$ on $X$, we may define a pseudo-functor $\Sch_X\rightarrow\Sets$ by
-$$\mathcal{X}_F: (Y\rightarrow X)\mapsto\{(E,\varphi): \text{$E$ a $G''$-torsor sheaf on $X$, $\varphi: E\xrightarrow{\cong} F|_Y$}\}.$$
-This pseudo-functor defines a $G'$-gerbe on $X$.  The map $\delta$ is then given by $F\mapsto \mathcal{X}_F$.  Exactness then follows from the fact that $\mathcal{X}_F$ and $BG'$ are isomorphic as stacks if and only if $\mathcal X_F(X)\neq\varnothing$, which is true if and only if $F$ is the trivial torsor sheaf.
-
-As a consequence of the above, there exists an exact sequence
-$$\Pic(X)\rightarrow H^1(X,\bbgl_n)\rightarrow H^1(X,\bbpgl_n)\xrightarrow{\delta} H^2(X,\bbg_m).$$
-
-\begin{prop}
-The fibers of $\delta$ are equivalence classes of Azumaya algebras.  Consequently $\delta$ induces a group monomorphism $\Br(X)\hookrightarrow  H^2(X,\bbg_m)$.
-\end{prop}
 
 The image of $\Br(X)$ in $H^2(X,\bbg_m)$, is torsion.  To see this, consider the commutative diagram
 $$\xymatrix{
@@ -185,9 +232,15 @@ where the rows and columns are all short exact sequences (in fppf topology).
 \begin{prop}
 The map $\delta: H^1(X,\bbpgl_n)\rightarrow H^2(X,\bbg_m)$ factors through the map $H^2(X,\mu_n)\rightarrow H^2(X,\bbg_m)$ induced by the Kummer sequence.  In particular, the image of $H^1(X,\bbpgl_n)$ is torsion in $H^2(X,\bbg_m)$.
 \end{prop}
+\begin{proof}
+Follows from mucking about with the above diagram.
+\end{proof}
 \begin{cor}
 The geometric Brauer group embeds into the cohomological Brauer group.
 \end{cor}
+\begin{proof}
+This follows from the fact that $\Br'(X)$ is defined to be the torsion in $H^2(X,\bbg_m)$.
+\end{proof}
 
 In ideal situations, one can show that the geometric Brauer group and the cohomological Brauer group are the same.  What exactly constitutes an ``ideal situation" is an open problem.  However, agreement is know to hold for Noetherian schemes with dimension at most $1$.
 \begin{prop}
