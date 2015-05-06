@@ -1,4 +1,34 @@
 \section{A Nonrational Unirational Variety}
+\subsection{Basic Definitions and Facts}
+In this section, by ``variety" we mean an integral, separated scheme of finite type over an algebraically closed field $k$.  Recall that a variety $X$ is rational if it is birational to $\bbp^n_k$ for some $n$.  Equivalently $X$ is rational if its fraction field $K = K(X)$ is a purely transcendental extension of $k$ of finite transcendence degree.
+\begin{ex}
+The projective variety $\bbp^1_k\otimes\bbp^1_k$ is rational.
+\end{ex}
+\begin{ex}
+A curve $C$ with genus $g>0$ cannot be rational.
+\end{ex}
+
+\begin{defn}
+A variety $X$ is called \vocab{unirational} if for some $n$ there exists a dominant, generically finite, rational morphism $\bbp^n_k\xdashrightarrow{f}X$.
+\end{defn}
+
+\begin{thm}
+Let $X$ be a variety with $\dim(X) = 1$.  If $X$ is unirational, then $X$ is rational.
+\end{thm}
+\begin{proof}
+Suppose that $X$ is unirational.  Then the dominant rational morphism from $\bbp^1$ to $X$ extends to a morphism of schemes $\bbp^1\rightarrow X$.  This in turn induces a dominant morphism $\bbp^1\rightarrow \ol X$, where $\ol X$ is the projective closure of $X$.  Since $\ol X$ and $\bbp^1$ are both projective curves, the induced map $\bbp^1\rightarrow \ol X$ is in fact an isomorphism, and therefore $X$ is rational.
+\end{proof}
+
+\begin{thm}
+Let $X$ be a variety with $\dim(X) = 2$ and assume that the characteristic of the base field $k$ is $0$.  If $X$ is unirational, then $X$ is rational.
+\end{thm}
+\begin{proof}
+Suppose that $X$ is unirational.  Then one may argue that the the irregularity and $2$-pleurigenus of $X$ are both $0$, and therefore $X$ is raitonal by Castelnuovo's theorem.
+\end{proof}
+
+Given a variety $X$ over a field $k$ of characteristic $0$, if $X$ is unirational does it follow that $X$ is rational?  As it turns out, the answer is no.  For a cleverly chosen quaternion algebra $\Delta$ on a cleverly chosen rational surface $S$, the Brauer-Severi variety $\BS_2(A)$ of a maximal $\sheaf O_S$-order $A$ in $\Delta$ may be shown to be unirational but not rational.
+
+\subsection{Construction}
 In this section, we construct a surface $S$ with quotient field $K = k(x,y)$ and quaternion algebra $\Delta$ over $K$ whose ramification locus is a union of two nonsingular, disjoint curves $C_1,C_2$ on $S$ such that the Brauer-Severi scheme of a maximal order $\sheaf A$ of $\Delta$ over $S$ is unirational.  It will then follow from cohomological considerations that $\BS(\sheaf A)$ is a nonrational unirational variety.
 
 Fix a nonsingular conic in $Z = V(\alpha)\subseteq \bbp^2_k$, and choose six distinct points $P_i^{(j)}\in Z$, $i=1,2$, $j=1,2,3$.
@@ -32,18 +62,22 @@ Let $L_i:=K(E_i)[\ol q^{1/2}]$ and let $E_i'$ be the normalization of $E_i$ in $
 Since $E_i'\rightarrow E_i$ is locally of finite type, it suffices to show that for any point $P'\in E_i'$ with image $P\in E_i$, the induced map of residue fields $\kappa(P)\rightarrow\kappa(P')$ is a finite, separable field extension.  Then the local ring $R = \sheaf O_{E_i,P}$ is a DVR $(R,\nu)$ with residue field $k$ and fraction field $K(L_i)$.  Let $t$ be a uniformizer for $R$.  Depending on whether or not $P$ is one of the intersection points $P_i^{(j)}$ of $E_i$ and $Z$, the value of $\nu(\ol q)$ is either $0$ or $2$, meaning we may write $\ol q = ut^{2j}$ for some $u\in R^*$ and integer $j$.  Note that $R[u^{1/2}]$ is a semilocal Dedekind domain, hence a PID, and therefore integrally closed in its fraction field $L_i$.  Therefore since $u^{1/2}\in L_i$ is integral over $R$, we have $\sheaf O_{E_i',P'} = R[u^{1/2}]$.  Furthermore $R[u^{1/2}] = R[x]/(x^2-u)$ is unramified since $u$ is a unit.
 \end{proof}
 
-Define $S$ to be the blow up of $\bbp_k^2$ at the intersection points of $O_1,\dots,O_9$ of $E_1$ and $E_2$, and let $C_i$ be the proper transform of $E_i$ for $i=1,2$.  Then $S$ is a simply connected rational surface, on which the nonsingular curves $C_1$ and $C_2$ are disjoint.  Note that since $S$ is rational, $\Br(S) = 0$.  Therefore the Artin-Mumford sequence tells us there exists a unique $\Delta\in\Br_2(K)$ whose ramification locus is $C = C_1\cup C_2$ and whose ramification data on $C_i$ is the nowhere-ramified extension $L_i$ for $i=1,2$.
-
+Define $S$ to be the blow up of $\bbp_k^2$ at the intersection points of $O_1,\dots,O_9$ of $E_1$ and $E_2$, and let $C_i$ be the proper transform of $E_i$ for $i=1,2$.  Then $S$ is a simply connected rational surface, on which the nonsingular curves $C_1$ and $C_2$ are disjoint.  Note that since $S$ is rational, $\Br(S) = 0$.  Therefore the Artin-Mumford sequence tells us there exists a unique two-torsion $\delta\in\Br(K)$ whose ramification locus is $C = C_1\cup C_2$ and whose ramification data on $C_i$ is the nowhere-ramified extension $L_i$ for $i=1,2$.
+\begin{lem}
+The Brauer class $\delta$ is split by the quadratic extension $L = K[q^{1/2}]$ of $K$.  Consequently $\delta$ may be represented by a quaternion algebra $\Delta$.
+\end{lem}
+\begin{proof}
 Choose a cubic curve $E_0 = V(\beta)\subseteq \bbp^2_k$ such that the divisor $E_0$ pulls back on $Z$ to the divisor $\sum_{ij}P_i^{(j)}$.  In particular, this means that $\beta_1\beta_2-\beta$ is identically zero on $\alpha$, so that there exists a homogeneous polynomial $\gamma$ of degree $4$ satisfying $4\alpha\gamma = (\beta_1\beta_2-\beta)$.  Consider the field $L := K[q^{1/2}]$, and let $Y_0$ be the quartic in $\bbp^3_k$ defined by
 $$Y_0 = V(\alpha(X_0,X_1,X_2)X_3^2 + \beta(X_0,X_1,X_2)X_3 + \gamma(X_0,X_1,X_2))\subseteq \bbp^3_k.$$
 Note that $Q_0 = [0:0:0:1]$ is a singular point of $Y_0$.  Moreover, The projection $Y_0\diff\{Q_0\}\rightarrow\bbp^2_k$ is a double cover of $\bbp^2_k$ ramified at $V(\beta^2-4\alpha\gamma) = V(\beta_1\beta_2) = E_1\cup E_2$.  The remaining singular points of $Y_0$ must occur at ramification points, and therefore correspond to the singular points of $E = E_1\cup E_2$, ie. the points $Q_i$ mapping to the intersection points $O_i$ of the curves $E_1$ and $E_2$.
 
-Let $Y$ be the blow up of $Y$ at $Q_0,\dots, Q_9$.  Then $Y_0$ is the normalization of $\bbp^2_k$ in $L$, so $Y$ is the desingularization of the normalization of $S$ in $L$.  Furthermore, $Y$ is rational since it is birational to $Y_0$, which itself is rational because it is a quadric in $\bbp^3_k$.  Thus if we consider the commutative diagram induced by the morphism $f: Y\rightarrow S$ and the Artin-Mumford exact sequences for $S$ and $Y$
+Let $Y$ be the blow up of $Y_0$ at $Q_0,\dots, Q_9$.  Then $Y_0$ is the normalization of $\bbp^2_k$ in $L$, so $Y$ is the desingularization of the normalization of $S$ in $L$.  Furthermore, $Y$ is rational since it is birational to $Y_0$, which itself is rational because it is a quadric in $\bbp^3_k$.  Thus if we consider the commutative diagram induced by the morphism $f: Y\rightarrow S$ and the Artin-Mumford exact sequences for $S$ and $Y$
 $$\xymatrix{
 \Br(S) \ar[r]\ar[d] & \Br(K) \ar[r]\ar[d] & \bigoplus_{C\subseteq S} K(C)^*/K(C)^{*2}\ar[d]\\
 \Br(Y) \ar[r] & \Br(L) \ar[r] & \bigoplus_{C\subseteq Y} K(C)^*/K(C)^{*2}
 }$$
 The image of $[\Delta]$ in $\Br(L)$ is $[\Delta_L]$, and the ramification data becomes trivial.  Furthermore, the fact that $Y$ is rational implies that $\Br(Y) =0$.  Thus the class $[\Delta_L]$ is trivial.  Since the Brauer class of $\Delta$ splits over a quadratic extension, we conclude that $\Delta$ may be taken to be a quaternion algebra.
+\end{proof}
 
 \begin{lem}
 Let $\Delta$ be the quaternion algebra defined above, and let $\sheaf A$ be a maximal $\sheaf O_S$-order in $\Delta$.  Then the Brauer-Severi variety $\BS(\sheaf A)$ of $\sheaf A$ is unirational.
