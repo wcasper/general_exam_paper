@@ -29,7 +29,7 @@ Suppose that $X$ is unirational.  Then one may argue that the the irregularity a
 Given a variety $X$ over a field $k$ of characteristic $0$, if $X$ is unirational does it follow that $X$ is rational?  As it turns out, the answer is no.  For a cleverly chosen quaternion algebra $\Delta$ on a cleverly chosen rational surface $S$, the Brauer-Severi variety $\BS_2(A)$ of a maximal $\sheaf O_S$-order $A$ in $\Delta$ may be shown to be unirational but not rational.
 
 \subsection{Construction}
-In this section, we construct a surface $S$ with quotient field $K = k(x,y)$ and quaternion algebra $\Delta$ over $K$ whose ramification locus is a union of two nonsingular, disjoint curves $C_1,C_2$ on $S$ such that the Brauer-Severi scheme of a maximal order $\sheaf A$ of $\Delta$ over $S$ is unirational.  It will then follow from cohomological considerations that $\BS(\sheaf A)$ is a nonrational unirational variety.
+In this section, we construct a surface $S$ with quotient field $K = k(x,y)$ and quaternion algebra $\Delta$ over $K$ whose ramification locus is a union of two nonsingular, disjoint curves $C_1,C_2$ on $S$ such that the Brauer-Severi scheme of a maximal order $A$ of $\Delta$ over $S$ is unirational.  It will then follow from cohomological considerations that $\BS(A)$ is a nonrational unirational variety.
 
 Fix a nonsingular conic in $Z = V(\alpha)\subseteq \bbp^2_k$, and choose six distinct points $P_i^{(j)}\in Z$, $i=1,2$, $j=1,2,3$.
 \begin{lem}
@@ -83,11 +83,9 @@ We claim that $f^*(\delta)$ is trivial.  To prove this, note that since the rami
 Let $e_i$ be the generic point of $E_i\subseteq\bbp^2_k$.  Then $f^{-1}(e_i)$ consists of two codimension $1$ points $y_{i1},y_{i2}$ whose local rings $\sheaf O_{Y_0,y_{ij}}$ have fraction field $L_i$.  Hence the induced maps $f^*: H^1(\kappa(x_i),\mu_2)\rightarrow H^1(\kappa(e_i),\mu_2)$ kill the ramification data.  Note that for all $y\in Y_0^1$, $\rho(f^*\delta)_y = f^*(\rho(\delta)_{f(y)}).$  In this way, we see that the ramification data of $f^*\delta$ over $Y_0$ is trivial, and since $Y_0$ is rational it follows that $f^*\delta$ is $0$.  This completes the proof.
 \end{proof}
 
-\begin{lem}
+\begin{prop}
 Let $\Delta$ be the quaternion algebra defined above, and let $\sheaf A$ be a maximal $\sheaf O_S$-order in $\Delta$.  Then the Brauer-Severi variety $\BS(\sheaf A)$ of $\sheaf A$ is unirational.
-\end{lem}
+\end{prop}
 \begin{proof}
-Using the same $f: Y\rightarrow S$ as above, we have that
-$$\BS(\sheaf A)\times_S Y\cong \BS(f^*\sheaf A) \cong \bbp^1_Y.$$
-Projection onto the first factor then gives us a surjection $\bbp^1_Y\rightarrow \BS(\sheaf A)$, and since $Y$ is rational this proves that $\BS(\sheaf A)$ is unirational.
+From the proof of the last proposition, there exists a dominant rational morphism $f$ from a rational scheme $Y$ to $S$ such that $K(Y) = L$.  Let $U\subseteq Y$ be the nonempty open subscheme of $Y$ on which $f$ is defined.  In fact from the previous construction $f$ may be taken to be etale.  Then $f^*A$ is a normal $\sheaf O_U$-order in $\Delta\otimes_kL\cong M_2(L)$, and therefore $\BS(f^*A)$ is rational.  Then since $\BS(A)\times_S U\cong \BS(f^*\sheaf A)$, it follows that $\BS(A)$ is rational.
 \end{proof}
