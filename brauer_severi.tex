@@ -8,12 +8,12 @@ Hence rank $n$ Azumaya algebras on $X$ and twisted forms of $\bbp^{n_1}_X$ are i
 
 Let $A$ a sheaf of $\sheaf O_X$-algebras, locally free as an $\sheaf O_X$-module.  We define a functor $\FBS_n(A): \Sch_X\rightarrow \Sets$ by
 $$\FBS_n(A): (T\rightarrow X)\mapsto \{\text{quot. left $A_T$-modules of $A_T$ loc. free of rank $n^2-n$}\}.$$
-We will prove that this functor is representable by proving that it is a locally closed subfunctor of the Quot functor.  The latter is representable, since $X$ is proper over $k$ \cite{nitsure2005construction}.
+We will prove that this functor is representable by proving that it is a locally closed subfunctor of the Quot functor (or alternatively a closed subfunctor of the vector bundle Grassmannian $\mathfrak{Grass}(E,d)$).  The latter is representable, since $X$ is proper over $k$ \cite{nitsure2005construction}.
 \begin{lem}
 The functor $\FBS_n(A)$ is representable by a quasi-projective $k$-scheme.
 \end{lem}
 \begin{proof}
-Define a subfunctor $\FQ_n$ of the Quot functor $\FQ := \FQuot_{A/X/k}$ by
+Define a subfunctor $\FQ_n$ of the Quot functor $\FQ := \FQuot_{A/X/X}$ by
 $$\FQ_n: (T\rightarrow X)\mapsto \{(\sheaf F,q)\in \FQ(T): \sheaf F\ \text{is locally free of rank $n$}\}.$$
 We claim that $\FQ_n$ is an open subfunctor of $\FQ$.  To see this, suppose that $T\in\Sch_k$ and that we have a natural transformation $h_T\rightarrow \FQ$.  Since $\FQ$ is represented by a scheme $Q$, there exists a natural isomorphism $\eta: \Hom(-,Q)\rightarrow\FQ$.  Furthermore, Yoneda tells us $h_T\rightarrow \FQ$ corresponds to a unique morphism $f:T\rightarrow Q$, thereby a unique element $(\sheaf F,q) := \eta(T)(f)\in \FQ(T)$.  Note that since $\sheaf F$ is flat over $T$, it is locally free over $T$.  Let $U\subseteq T$ be the set of points $t\in T$ for which $\sheaf F_t$ has rank $n$.  Then $U$ is an open subset of $T$.  Thus to prove that $\FQ_n$ is an open subfunctor of $\FQ$ it suffices to show that $\FQ_n\times_{\FQ}h_T = h_U$.
 
