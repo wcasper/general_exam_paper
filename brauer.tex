@@ -18,7 +18,9 @@ $$D\cong \sum_{x\in X^1}i_{x*}\bbz.$$
 \begin{proof}
 By definition, $D = i_{\eta*}\bbg_m/\bbg_m$.  Therefore it suffices to show that the sequence
 $$0\rightarrow\bbg_m\rightarrow i_{\eta*}\bbg_m \xrightarrow{\rho} \sum_{x\in X^1}i_{x*}\bbz\rightarrow 0$$
-is exact on the small Zariski site of $X$, where here $\rho$ is the map defined by $s\mapsto (\nu_x(s))_x$.  This in turn is verified by checking stalks.
+is exact, where here
+$$\rho(Y): K(Y)^*\rightarrow \sum_{y\in Y^1}\bbz$$
+is the map sending $f\in K(Y)^*$ to the corresponding Weil divisor $(f)$.  The exactness of the above sequence is a consequence of the fact that $X$ is nonsingular.
 \end{proof}
 
 As a consequence of the previous lemma, we have a long exact sequence in cohomology
