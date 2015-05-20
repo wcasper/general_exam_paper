@@ -5,9 +5,9 @@ In this section, we turn our attention to the Brauer group of a nonsingular inte
 Let $X$ be a nonsingular, excellent, integral scheme.  If $\ell$ is coprime to the characteristic of $K$, then we have an $\ell$-exact sequence
 $$0\rightarrow \Br'(X)\rightarrow\Br(K)\xrightarrow{\rho} \bigoplus_{x\in X^1} H^1(X,i_*(\bbq/\bbz))\rightarrow H^3(X^1,\bbg_m)\rightarrow H^3(X,\bbg_m).$$
 \end{thm}
-Here $X^1$ represents the set of codimension $1$ points of $X$, and by $H^p(X^1,\bbg_m)$, we mean $\colim H^p(U,\bbg_m)$ where the limit is taken over all complements $U$ of closed subsets of $X$ with codimension at least two.  In other words, we are taking cohomology viewing $X^1$ as a pro-object in our category.  The map $\rho$ has an interesting algebraic interpretation.  In particular, given a central simple $K$-algebra $\Delta$, there exists a nonempty open subset of $X$ to which $\Delta$ extends to an Azumaya algebra.  A Zorn's lemma argument then tells us that there exists a largest such open set $U$.  In fact, if we let $\sheaf A$ be a maximal $\sheaf O_X$-algebra in $\Delta$, then the set of $x\in X$ for which $\sheaf A_x$ is Azumaya is exactly $U$.  One may show that $X\diff U$ is the union of the closures $C_x$ of the $x\in X^1$ for which $\rho([\Delta])_x$ is nonzero.
+Here $X^1$ represents the set of codimension $1$ points of $X$, and by $H^p(X^1,\bbg_m)$, we mean $\colim H^p(U,\bbg_m)$ where the limit is taken over all complements $U$ of closed subsets of $X$ with codimension at least two.  In other words, we are taking cohomology viewing $X^1$ as a pro-object in our category.  The map $\rho$ has an interesting algebraic interpretation.  In particular, given a central simple $K$-algebra $\Delta$, there exists a nonempty open subset of $X$ to which $\Delta$ extends to an Azumaya algebra.  A Zorn's lemma argument then tells us that there exists a largest such open set $U$.  In fact, if we let $A$ be a maximal $\sheaf O_X$-algebra in $\Delta$, then the set of $x\in X$ for which $A_x$ is Azumaya is exactly $U$.  One may show that $X\diff U$ is the union of the closures $C_x$ of the $x\in X^1$ for which $\rho([\Delta])_x$ is nonzero.
 
-The relationship extends even further than this.  The cohomology group $H^1(\kappa(x),\bbq/\bbz)$ classifies cyclic extensions of $\kappa(x)$.  Since $X$ is nonsingular, for each $x\in X^1$ the local ring $\sheaf O_{X,x}$ is a DVR with valuation $\nu_x$ and residue field $\kappa(x)$.  Since $\sheaf A_x$ is a maximal order on $\sheaf O_{X,x}$ the theory of maximal orders on DVRs tells us that $\sheaf A_x/J(\sheaf A_x)$ is a central simple algebra, whose center is a cyclic extension of $k(x)$, and therefore represented up to isomorphism by an element of $H^1(\kappa(x),\bbq/\bbz)$.  One may show that this element is $\rho([\Delta])_x$.
+The relationship extends even further than this.  The cohomology group $H^1(\kappa(x),\bbq/\bbz)$ classifies cyclic extensions of $\kappa(x)$.  Since $X$ is nonsingular, for each $x\in X^1$ the local ring $\sheaf O_{X,x}$ is a DVR with valuation $\nu_x$ and residue field $\kappa(x)$.  Since $A_x$ is a maximal order on $\sheaf O_{X,x}$ the theory of maximal orders on DVRs tells us that $A_x/J(A_x)$ is a central simple algebra, whose center is a cyclic extension of $k(x)$, and therefore represented up to isomorphism by an element of $H^1(\kappa(x),\bbq/\bbz)$.  One may show that this element is $\rho([\Delta])_x$.
 
 To prove our main theorem, we start by recognizing that the fact that for nonsingular $X$ the sheaf of Cartier divisors $D$ has a simple description.
 \begin{lem}
@@ -17,7 +17,9 @@ $$D\cong \sum_{x\in X^1}i_{x*}\bbz.$$
 \begin{proof}
 By definition, $D = i_{\eta*}\bbg_m/\bbg_m$.  Therefore it suffices to show that the sequence
 $$0\rightarrow\bbg_m\rightarrow i_{\eta*}\bbg_m \xrightarrow{\rho} \sum_{x\in X^1}i_{x*}\bbz\rightarrow 0$$
-is exact on the small Zariski site of $X$, where here $\rho$ is the map defined by $s\mapsto (\nu_x(s))_x$.  This in turn is verified by checking stalks.
+is exact, where here
+$$\rho(Y): K(Y)^*\rightarrow \sum_{y\in Y^1}\bbz$$
+is the map sending $f\in K(Y)^*$ to the corresponding Weil divisor $(f)$.  The exactness of the above sequence is a consequence of the fact that $X$ is nonsingular.
 \end{proof}
 
 As a consequence of the previous lemma, we have a long exact sequence in cohomology
@@ -100,7 +102,7 @@ In the case that $X$ is a nonsingular, $2$-dimensional integral scheme, the firs
 Let $X$ be a nonsingular, $2$-dimensional integral scheme.  Then the canonical inclusion $\Br(X)\subseteq \Br'(X)$ is an isomorphism.
 \end{prop}
 \begin{proof}
-Suppose that $[d]\in \Br'(X)$, and let $[\Delta]$ be its image in $\Br(K)$.  Let $\sheaf A$ be a maximal $\sheaf O_X$-order in $\Delta$.  Then $\sheaf A_x$ is a maximal $\sheaf O_{X,x}$-order in $\Delta$.  Since the latter factors through $\Br(X)\rightarrow\Br(\sheaf O_{X,x})$, it follows that $\sheaf A_x$ is Azumaya.  Furthermore, since $\sheaf A$ is maximal, it must be reflexive.  Hence $\sheaf A$ is Azumaya, and $[\sheaf A]\mapsto [\Delta]\in \Br(K)$.  Hence $[\sheaf A]\mapsto [d]\in \Br'(X)$.
+Suppose that $[d]\in \Br'(X)$, and let $[\Delta]$ be its image in $\Br(K)$.  Let $A$ be a maximal $\sheaf O_X$-order in $\Delta$.  Then $A_x$ is a maximal $\sheaf O_{X,x}$-order in $\Delta$.  Since the latter factors through $\Br(X)\rightarrow\Br(\sheaf O_{X,x})$, it follows that $A_x$ is Azumaya.  Furthermore, since $A$ is maximal, it must be reflexive.  Hence $A$ is Azumaya, and $[A]\mapsto [\Delta]\in \Br(K)$.  Hence $[A]\mapsto [d]\in \Br'(X)$.
 \end{proof}
 
 \subsection{Artin-Mumford Spectral Sequence}

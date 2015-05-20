@@ -100,7 +100,7 @@ This category has a natural functor $\varphi: \int F\rightarrow \catb$ defined b
 \end{ex}
 
 \begin{defn}
-Let $\catc\rightarrow\catb$ and $\catc'\rightarrow\catb$ be fibered categories, and let $F:\catc'\rightarrow\catc$ be a $1$-morphism of fibered categories over $\catb$.  Then we define the \vocab{inertia category of $\catc'$ over $\catc$} $\inertia_{\catc'/\catc}$ to be the category whose objects are pairs $(c',f)$ with $c\in \catc'$ and $f:c'\rightarrow c'$ an automorphism satisfying $F(f) = \id_{F(c')}$, and whose morphisms $(c_0',f_0)\rightarrow (c_1',f_1)$ are morphisms $h: c_0'\rightarrow c_1'$ such that $hf_0 = f_1h$.  We define the \vocab{inertia category of $\catc$} to be $\inertia_{\catc/\catb}$, and denote it by $\inertia_{\catc}$
+Let $\catc\rightarrow\catb$ and $\catc'\rightarrow\catb$ be fibered categories, and let $F:\catc'\rightarrow\catc$ be a $1$-morphism of fibered categories over $\catb$.  Then we define the \vocab{inertia category of $\catc'$ over $\catc$}, denoted $\inertia_{\catc'/\catc}$, to be the category whose objects are pairs $(c',f)$ with $c\in \catc'$ and $f:c'\rightarrow c'$ an automorphism satisfying $F(f) = \id_{F(c')}$, and whose morphisms $(c_0',f_0)\rightarrow (c_1',f_1)$ are morphisms $h: c_0'\rightarrow c_1'$ such that $hf_0 = f_1h$.  We define the \vocab{inertia category of $\catc$} to be $\inertia_{\catc/\catb}$, and denote it by $\inertia_{\catc}$
 \end{defn}
 
 Now consider the case when the base category $\catb$ is a site.
@@ -143,18 +143,18 @@ Let $G$ be a group scheme on $X$, and let $V$ be a (left) $G$-torsor sheaf.  We 
 
 For reasons that will become apparent momentarily, we denote the set of isomorphism classes of $G$-gerbes on $X$ by $H^2_g(X,G)$.  Note that if $G$ is abelian, then $H^2_g(X,G)$ has a natural group structure
 $$H_g^2(X,G)\times H_g^2(X,G)\rightarrow H_g^2(X,G\times G)\rightarrow H_g^2(X,G),$$
-induced by the product map on $G$ and the projections $G\rightrightarrows G\times G\rightarrow G$.
+induced by the product map on $G$ and the projections $G\rightarrow G\times G\rightrightarrows G$.
 \begin{prop}
 Suppose that $G$ is an abelian group scheme.  Then there is a canonical isomorphism
 $$H^2_g(X,G)\rightarrow H^2(X_{et},G).$$
 \end{prop}
 \begin{proof}
-Suppose that $G'$ a group scheme on $X$, which is injective as a $\bbz$-module.  Let $\catx$ be a $G'$-gerbe, and choose a covering $\mathfrak U=\{f_i: U_i\rightarrow X\}$ on which the gerbe $\catx$ restricts to the trivial gerbe $BG'$.  Then let $f: \amalg_i U_i\rightarrow X$ be the induced covering map.  Then since $G'$ is injective, the natural map $G'\rightarrow f_*f^*G'$ splits.  It follows that $H^2_g(X,G')\rightarrow H^2_g(X,f_*f^*G')$ splits also, and therefore since since the image of $\catx$ is $0$ in $H^2_g(X,f_*f^*G')$, we must have $\catx = 0$.
+Suppose that $G'$ a group scheme on $X$, which is injective as a $\bbz$-module.  Let $\catx$ be a $G'$-gerbe, and choose a covering $\mathfrak U=\{f_i: U_i\rightarrow X\}$ on which the gerbe $\catx$ restricts to the trivial gerbe $BG'$.  Then let $f: \amalg_i U_i\rightarrow X$ be the induced covering map.  Then since $G'$ is injective, the natural map $G'\rightarrow f_*f^*G'$ splits.  It follows that $H^2_g(X,G')\rightarrow H^2_g(X,f_*f^*G')$ splits also, and therefore since the image of $\catx$ is $0$ in $H^2_g(X,f_*f^*G')$, we must have $\catx = 0$.
 
 Now let $G$ be an arbitrary abelian group scheme $G$, and embed $G$ into an injective $G'$, with cokernel $G''$.  Then we have a short exact sequence of abelian group schemes
 $$1\rightarrow G\rightarrow G'\rightarrow G''\rightarrow 1,$$
 which induces a long exact sequence
-$$\dots H^1(X,G')\rightarrow H^1(X,G'')\rightarrow H^2_g(X,G)\rightarrow H^2_g(X,G')\rightarrow H^2(X,G,'').$$
+$$\dots \rightarrow H^1(X,G')\rightarrow H^1(X,G'')\rightarrow H^2_g(X,G)\rightarrow H^2_g(X,G')\rightarrow H^2(X,G,'').$$
 See Milne \cite{milne1980etale} for details.  Then since $H^2_g(X,G') = 0$, this shows that $H^2_g(X,G)$ is the cokernel of $H^1(X,G')\rightarrow H^1(X,G'')$, which is $H^2(X,G)$.  This completes the proof.
 \end{proof}
 
@@ -239,7 +239,7 @@ Follows from mucking about with the above diagram.
 The geometric Brauer group embeds into the cohomological Brauer group.
 \end{cor}
 \begin{proof}
-This follows from the fact that $\Br'(X)$ is defined to be the torsion in $H^2(X,\bbg_m)$.
+One checks that $\catx_{A\otimes A'} = \catx_{A}\cdot\catx_{A'}$.  Furthermore, $\catx_A = B\bbg_m$ if and only if $\catx_A$ has a section $X\rightarrow\catx_A$, which is true if and only if $A$ is a trivial Azumaya algebra.
 \end{proof}
 
 In ideal situations, one can show that the geometric Brauer group and the cohomological Brauer group are the same.  What exactly constitutes an ``ideal situation" is an open problem.  However, agreement is know to hold for Noetherian schemes with dimension at most $1$.
